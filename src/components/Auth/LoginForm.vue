@@ -1,6 +1,5 @@
 <template>
   <v-card flat>
-    <!--  <SocialAuth /> -->
     <v-form
       ref="form"
       v-model="valid"
@@ -50,18 +49,14 @@
 
 <script>
 import { mapActions } from 'vuex'
-// import SocialAuth from './SocialAuth'
 
 export default {
-  components: {
-    // SocialAuth
-  },
   data() {
     return {
       isPasswordVisible: false,
       valid: true,
       email: 'sylvain.nymrinae@gmail.com',
-      password: 'testepitech1',
+      password: 'dofusXD1',
       snackbar: false,
       errorMsg: ''
     }
@@ -79,7 +74,7 @@ export default {
         const res = await this.login(user)
 
         if (res) {
-          this.$router.replace({ path: '/dashboard' })
+          this.$router.replace({ path: '/builder' })
         } else {
           this.snackbar = true
           this.errorMsg = 'Incorrect credentials'

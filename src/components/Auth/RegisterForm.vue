@@ -115,7 +115,6 @@ export default {
     async validate() {
       if (this.$refs.form.validate()) {
         const user = {
-          avatar: null,
           username: this.username,
           email: this.email,
           password: this.password
@@ -129,6 +128,10 @@ export default {
           this.email = ''
           this.password = ''
           this.passwordConf = ''
+          this.$router.replace({ path: '/builder' })
+        } else {
+          this.snackbar = true
+          this.errorMsg = 'Incorrect credentials'
         }
       }
     }

@@ -9,8 +9,8 @@
                 class="text-center"
                 style="margin: 64px auto"
                 :src="require('../../assets/logo.png')"
-                height="200"
-                width="200"
+                height="275"
+                width="208"
               />
               <div class="text-center">
                 <h1 class="display-2 font-weight-bold"> DofusCharBuilder </h1>
