@@ -1,10 +1,14 @@
 <template>
-  <p> test ! </p>
+  <StatsCard />
 </template>
 
 <script>
-export default {
+import { StatsCard } from '../components'
 
+export default {
+  components: {
+    StatsCard
+  }
 }
 </script>
 
