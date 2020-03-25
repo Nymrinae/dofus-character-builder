@@ -2,7 +2,7 @@
   <v-card class="pa-2" outlined>
     <v-list dense disabled flat>
       <StatsList
-        title="Stats défensives & autres"
+        title="STATS DEFENSIVES / AUTRES"
         :data="defensiveStats"
       />
     </v-list>

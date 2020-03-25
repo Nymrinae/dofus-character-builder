@@ -1,6 +1,8 @@
 <template>
   <v-container class="pa-0">
-    <v-subheader> {{ title }} </v-subheader>
+    <v-subheader class="subtitle-2 font-weight-black">
+      {{ title }}
+    </v-subheader>
     <v-list-item-group v-model="item" color="primary">
       <v-list-item
         v-for="(item, i) in data"

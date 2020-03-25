@@ -42,10 +42,10 @@ export default {
       { text: 'Agilité', icon: 'agi', baseValue: '0' }
     ],
     secondaryStats: [
-      { text: 'Critique', icon: 'crit', baseValue: '5' },
-      { text: 'Soin', icon: 'heal', baseValue: '10' },
-      { text: 'Dommages', icon: 'dmg', baseValue: '15' },
-      { text: 'Puissance', icon: 'pui', baseValue: '30' },
+      { text: 'Critique', icon: 'crit', baseValue: '0' },
+      { text: 'Soin', icon: 'heal', baseValue: '0' },
+      { text: 'Dommages', icon: 'dmg', baseValue: '0' },
+      { text: 'Puissance', icon: 'pui', baseValue: '0' },
       { text: 'Renvoi Dommages', icon: 'rdmg', baseValue: '0' },
       { text: 'Dommages Pièges', icon: 'piegedmg', baseValue: '0' },
       { text: 'Puissance Pièges', icon: 'piegepui', baseValue: '0' }

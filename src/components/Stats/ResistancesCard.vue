@@ -26,7 +26,7 @@ export default {
   },
   data: () => ({
     dommages: [
-      { icon: 'neutre', baseValue: '1' },
+      { icon: 'neutre', baseValue: '0' },
       { icon: 'terre', baseValue: '0' },
       { icon: 'feu', baseValue: '0' },
       { icon: 'eau', baseValue: '0' },
