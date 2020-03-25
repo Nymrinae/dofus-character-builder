@@ -7,7 +7,7 @@
         :key="i"
       >
         <v-list-item-icon>
-          <v-img :src="require(`../../../assets/icons/${item.icon}.png`)"></v-img>
+          <v-img :src="require(`@@/assets/icons/stats/${item.icon}.png`)"></v-img>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-text="item.text"></v-list-item-title>

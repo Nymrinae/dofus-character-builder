@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container class="container">
     <v-row>
       <v-col cols="2" class="mt-4">
         <StatsCard />
@@ -30,4 +30,8 @@ export default {
 </script>
 
 <style>
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
