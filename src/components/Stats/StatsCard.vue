@@ -28,7 +28,6 @@ export default {
     StatsList
   },
   data: () => ({
-    sections: ['basicStats', 'primaryStats', 'secondaryStats'],
     basicStats: [
       { text: 'Vitalité', icon: 'hp', baseValue: '400' },
       { text: 'PA', icon: 'pa', baseValue: '7' },

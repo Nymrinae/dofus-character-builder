@@ -11,6 +11,7 @@
       </v-col>
       <v-col cols="2" class="mt-4">
         <UserCard />
+        <ResistancesCard />
       </v-col>
     </v-row>
   </v-container>
@@ -18,11 +19,12 @@
 
 <script>
 /* eslint-disable */
-import { StatsCard, UserCard } from '../components'
+import { ResistancesCard, StatsCard, UserCard } from '../components'
 
 export default {
   middleware: 'auth',
   components: {
+    ResistancesCard,
     StatsCard,
     UserCard
   }
@@ -34,4 +36,9 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+
+html {
+  overflow: hidden;
+}
 </style>
+

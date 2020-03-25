@@ -12,6 +12,15 @@
         </v-col>
         <v-col cols="auto">
           <h2> Nymrinae </h2>
+          <v-text-field
+            v-model="level"
+            label="Change level"
+            type="number"
+            :min="1"
+            :max="200"
+            hide-details
+            @input="levelLimits"
+          />
         </v-col>
         <v-col cols="auto">
           <v-select
@@ -34,10 +43,17 @@ export default {
     classes: [
       'Cra', 'Ecaflip', 'Eliotrope', 'Eniripsa', 'Enutrof', 'Feca', 'Huppermage', 'Iop', 'Osamodas',
       'Ouginak', 'Pandawa', 'Roublard', 'Sacrieur', 'Sadida', 'Sram', 'Steamer', 'Xelor', 'Zobal'
-    ]
+    ],
+    level: 1
   }),
   computed: {
     getImage() { return require(`@@/assets/icons/classes/${this.activeClass.toLowerCase()}.png`) }
+  },
+  methods: {
+    levelLimits() {
+      if (this.level < 0) { this.level = 1 }
+      if (this.level > 200) { this.level = 200 }
+    }
   }
 }
 </script>

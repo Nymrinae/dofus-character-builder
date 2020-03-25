@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container class="pa-0" >
     <v-subheader> {{ title }} </v-subheader>
     <v-list-item-group v-model="item" color="primary">
       <v-list-item
@@ -17,14 +17,14 @@
         </v-list-item-action>
       </v-list-item>
     </v-list-item-group>
-  </div>
+  </v-container>
 </template>
 
 <script>
 export default {
   props: {
     title: { type: String, required: true },
-    data: { type: Object, required: true }
+    data: { type: Array, required: true }
   }
 }
 </script>
