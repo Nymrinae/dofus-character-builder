@@ -1,6 +1,6 @@
 <template>
   <v-card class="pa-2 mx-auto" outlined tile>
-    <v-container>
+    <v-container class="mb-n10 pb-n3">
       <v-row justify="space-around">
         <v-col cols="auto">
           <v-img
@@ -27,7 +27,7 @@
             v-model="activeClass"
             :items="classes"
             filled
-            label="Change your class here"
+            label="Changer de classe"
           />
         </v-col>
       </v-row>

@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0" >
+  <v-container class="pa-0">
     <v-subheader> {{ title }} </v-subheader>
     <v-list-item-group v-model="item" color="primary">
       <v-list-item
@@ -7,7 +7,7 @@
         :key="i"
       >
         <v-list-item-icon>
-          <v-img :src="require(`@@/assets/icons/stats/${item.icon}.png`)"></v-img>
+          <v-img :src="require(`@@/assets/icons/stats/${item.icon}.png`)" width="25" height="25" />
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-text="item.text"></v-list-item-title>

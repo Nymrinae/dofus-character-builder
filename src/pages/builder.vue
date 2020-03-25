@@ -12,6 +12,7 @@
       <v-col cols="2" class="mt-4">
         <UserCard />
         <ResistancesCard />
+        <DefensiveStatsCard />
       </v-col>
     </v-row>
   </v-container>
@@ -19,11 +20,12 @@
 
 <script>
 /* eslint-disable */
-import { ResistancesCard, StatsCard, UserCard } from '../components'
+import { DefensiveStatsCard, ResistancesCard, StatsCard, UserCard } from '../components'
 
 export default {
   middleware: 'auth',
   components: {
+    DefensiveStatsCard,
     ResistancesCard,
     StatsCard,
     UserCard
