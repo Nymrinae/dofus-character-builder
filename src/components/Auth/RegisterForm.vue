@@ -128,7 +128,6 @@ export default {
           this.email = ''
           this.password = ''
           this.passwordConf = ''
-          this.$router.replace({ path: '/builder' })
         } else {
           this.snackbar = true
           this.errorMsg = 'Incorrect credentials'

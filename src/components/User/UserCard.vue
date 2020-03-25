@@ -11,14 +11,14 @@
           />
         </v-col>
         <v-col cols="auto">
-          <h2> Nymrinae </h2>
+          <h2> {{ username() }} </h2>
           <v-text-field
             v-model="level"
-            label="Change level"
             type="number"
             :min="1"
             :max="200"
             hide-details
+            prefix="Niveau"
             @input="levelLimits"
           />
         </v-col>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
   data: () => ({
@@ -50,6 +51,9 @@ export default {
     getImage() { return require(`@@/assets/icons/classes/${this.activeClass.toLowerCase()}.png`) }
   },
   methods: {
+    ...mapGetters({
+      username: 'auth/getUsername'
+    }),
     levelLimits() {
       if (this.level < 0) { this.level = 1 }
       if (this.level > 200) { this.level = 200 }

@@ -1,23 +1,31 @@
 import { auth, db } from '../api/firebase'
 
 const state = () => ({
-  isAuth: false
+  isAuth: false,
+  user: null
 })
 
 const getters = {
-
+  getUsername: state => state.user.username
 }
 
 const mutations = {
-  CHANGE_USER_STATE: (state) => { state.isAuth = !state.isAuth }
+  CHANGE_USER_STATE: (state) => { state.isAuth = !state.isAuth },
+  SET_USER: (state, user) => { state.user = user }
 }
 
 const actions = {
   login: async ({ commit }, user) => {
     try {
-      await auth.signInWithEmailAndPassword(user.email, user.password)
-
+      const res = await auth.signInWithEmailAndPassword(user.email, user.password)
+      const data = {
+        username: res.user.displayName,
+        uid: res.user.uid
+      }
       commit('CHANGE_USER_STATE')
+      commit('SET_USER', data)
+
+      console.log(res)
 
       return true
     } catch (e) {
@@ -27,13 +35,17 @@ const actions = {
   register: async ({ commit }, user) => {
     try {
       const res = await auth.createUserWithEmailAndPassword(user.email, user.password)
+
       const newUser = {
-        username: user.username,
         items: []
       }
 
       if (res) {
         const ref = db.collection('users').doc(res.user.uid)
+
+        res.user.updateProfile({
+          displayName: user.username
+        })
 
         await ref.set(newUser)
       }
