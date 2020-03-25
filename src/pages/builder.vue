@@ -1,17 +1,32 @@
 <template>
-  <StatsCard />
+  <v-container class="grey lighten-5">
+    <v-row>
+      <v-col cols="2" class="mt-4">
+        <StatsCard />
+      </v-col>
+      <v-col cols="8" class="mt-4">
+        <v-card class="pa-2" outlined title>
+          test
+        </v-card>
+      </v-col>
+      <v-col cols="2" class="mt-4">
+        <UserCard />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import { StatsCard } from '../components'
+/* eslint-disable */
+import { StatsCard, UserCard } from '../components'
 
 export default {
   components: {
-    StatsCard
+    StatsCard,
+    UserCard
   }
 }
 </script>
 
 <style>
-
 </style>
