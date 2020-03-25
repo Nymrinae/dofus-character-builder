@@ -21,6 +21,7 @@
 import { StatsCard, UserCard } from '../components'
 
 export default {
+  middleware: 'auth',
   components: {
     StatsCard,
     UserCard
