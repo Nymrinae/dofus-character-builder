@@ -3,13 +3,13 @@
     <v-subheader class="subtitle-2 font-weight-black">
       {{ title }}
     </v-subheader>
-    <v-list-item-group v-model="item" color="primary">
+    <v-list-item-group color="primary">
       <v-list-item
         v-for="(item, i) in data"
         :key="i"
       >
         <v-list-item-icon>
-          <v-img :src="require(`@@/assets/icons/stats/${item.icon}.png`)" width="25" height="25" />
+          <v-img :src="require(`@@/assets/icons/${item.icon}.png`)" width="25" height="25" />
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-text="item.text"></v-list-item-title>

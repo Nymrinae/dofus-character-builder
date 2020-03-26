@@ -10,7 +10,7 @@
         >
           <v-list-item class="px-6">
             <v-list-item-icon>
-              <v-img :src="require(`@@/assets/icons/stats/${item.icon}.png`)"></v-img>
+              <v-img :src="require(`@@/assets/icons/${item.icon}.png`)" />
             </v-list-item-icon>
             <v-list-item-action>
               <v-list-item-title

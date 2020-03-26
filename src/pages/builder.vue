@@ -4,10 +4,8 @@
       <v-col cols="2" class="mt-4">
         <StatsCard />
       </v-col>
-      <v-col cols="8" class="mt-4">
-        <v-card class="pa-2" outlined title>
-          test
-        </v-card>
+      <v-col cols="8" class="mt-n8">
+        <CharacterContainer />
       </v-col>
       <v-col cols="2" class="mt-4">
         <UserCard />
@@ -19,12 +17,18 @@
 </template>
 
 <script>
-/* eslint-disable */
-import { DefensiveStatsCard, ResistancesCard, StatsCard, UserCard } from '../components'
+import {
+  CharacterContainer,
+  DefensiveStatsCard,
+  ResistancesCard,
+  StatsCard,
+  UserCard
+} from '../components'
 
 export default {
   middleware: 'auth',
   components: {
+    CharacterContainer,
     DefensiveStatsCard,
     ResistancesCard,
     StatsCard,
@@ -43,4 +47,3 @@ html {
   overflow: hidden;
 }
 </style>
-

@@ -1,0 +1,48 @@
+<template>
+  <v-container class="mx-auto">
+    <v-row>
+      <v-col cols="2" class="mt-4 ml-8">
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+      </v-col>
+      <v-col cols="8" class="mx-n4 mt-12">
+        <CharacterView
+          type="feca"
+        />
+        <v-row class="dofusSlots">
+          <v-cols cols="2" v-for="n in 6" :key="n">
+            <ItemContainer />
+          </v-cols>
+        </v-row>
+      </v-col>
+      <v-col cols="2" class="mt-4">
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+import CharacterView from './CharacterView'
+import ItemContainer from './ItemContainer'
+
+export default {
+  components: {
+    CharacterView,
+    ItemContainer
+  }
+}
+</script>
+
+<style>
+.dofusSlots {
+  margin-top: 64px;
+}
+</style>

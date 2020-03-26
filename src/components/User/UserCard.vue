@@ -48,7 +48,7 @@ export default {
     level: 1
   }),
   computed: {
-    getImage() { return require(`@@/assets/icons/classes/${this.activeClass.toLowerCase()}.png`) }
+    getImage() { return require(`@@/assets/classes/avatars/${this.activeClass.toLowerCase()}.png`) }
   },
   methods: {
     ...mapGetters({

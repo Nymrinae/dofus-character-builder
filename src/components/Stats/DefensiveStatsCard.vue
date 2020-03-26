@@ -24,7 +24,7 @@ export default {
       { text: 'Retrait PA', icon: 'retpa', baseValue: '0' },
       { text: 'Esquive PM', icon: 'esqpm', baseValue: '0' },
       { text: 'Retrait PM', icon: 'retpm', baseValue: '0' },
-      { text: 'Pods', icon: 'pods', baseValue: '0' },
+      { text: 'Pods', icon: 'pods', baseValue: '1000' },
       { text: 'Bouclier', icon: 'shield', baseValue: '0' }
     ]
   })
