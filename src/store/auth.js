@@ -25,8 +25,6 @@ const actions = {
       commit('CHANGE_USER_STATE')
       commit('SET_USER', data)
 
-      console.log(res)
-
       return true
     } catch (e) {
       return false

@@ -1,6 +1,6 @@
 <template>
   <v-card class="pa-2 mx-auto" outlined tile>
-    <v-container class="mb-n10 pb-n3">
+    <v-container class="mb-10 pb-9">
       <v-row justify="space-around">
         <v-col cols="auto">
           <v-img
@@ -22,14 +22,7 @@
             @input="levelLimits"
           />
         </v-col>
-        <v-col cols="auto">
-          <v-select
-            v-model="activeClass"
-            :items="classes"
-            filled
-            label="Changer de classe"
-          />
-        </v-col>
+        <!-- INSERT SAVE POSSIBILITIES AND SUCH HERE -->
       </v-row>
     </v-container>
   </v-card>
@@ -39,19 +32,14 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  data: () => ({
-    activeClass: 'unknown',
-    classes: [
-      'Cra', 'Ecaflip', 'Eliotrope', 'Eniripsa', 'Enutrof', 'Feca', 'Huppermage', 'Iop', 'Osamodas',
-      'Ouginak', 'Pandawa', 'Roublard', 'Sacrieur', 'Sadida', 'Sram', 'Steamer', 'Xelor', 'Zobal'
-    ],
-    level: 1
-  }),
   computed: {
-    getImage() { return require(`@@/assets/classes/avatars/${this.activeClass.toLowerCase()}.png`) }
+    level() { return this.getCurrentLevel() },
+    getImage() { return require(`@@/assets/classes/avatars/${this.activeClass()}.png`) }
   },
   methods: {
     ...mapGetters({
+      activeClass: 'character/getActiveClass',
+      getCurrentLevel: 'character/getCurrentLevel',
       username: 'auth/getUsername'
     }),
     levelLimits() {

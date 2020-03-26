@@ -25,9 +25,6 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  mounted() {
-    console.log(this.classes())
-  },
   methods: {
     ...mapActions({
       updateClass: 'character/updateClass'
