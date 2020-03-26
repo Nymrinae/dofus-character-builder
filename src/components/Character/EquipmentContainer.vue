@@ -1,34 +1,35 @@
 <template>
-  <v-row>
-    <v-col cols="2" class="mt-4 ml-8">
-      <ItemContainer />
-      <ItemContainer />
-      <ItemContainer />
-      <ItemContainer />
-      <ItemContainer />
-    </v-col>
-    <v-col cols="8" class="mx-n4 mt-12">
-      <CharacterView
-        type="feca"
-      />
-      <!-- <v-row class="dofusSlots">
-        <v-col
-          v-for="n in 6"
-          :key="n"
-          cols="2"
-        >
-          <ItemContainer />
-        </v-col>
-      </v-row> -->
-    </v-col>
-    <v-col cols="2" class="mt-4">
-      <ItemContainer />
-      <ItemContainer />
-      <ItemContainer />
-      <ItemContainer />
-      <ItemContainer />
-    </v-col>
-  </v-row>
+  <v-container class="pa-0 ma-0">
+    <v-row>
+      <v-col cols="3" align="center">
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+      </v-col>
+      <v-col cols="6">
+        <CharacterView />
+        <v-row style="margin-top: 86px">
+          <v-col cols="6" v-for="i in 2" :key="i" align="center">
+            <ItemContainer />
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="3" align="center">
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+        <ItemContainer />
+      </v-col>
+    </v-row>
+    <v-row class="ml-3 mr-n8 mt-n4">
+      <v-col v-for="i in 4" :key="i" cols="3">
+        <ItemContainer />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

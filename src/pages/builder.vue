@@ -5,7 +5,6 @@
         <StatsCard />
       </v-col>
       <v-col cols="8" class="mt-n8">
-        <!-- <ClassChoiceGroup /> -->
         <CharacterContainer />
       </v-col>
       <v-col cols="2" class="mt-4">

@@ -1,7 +1,14 @@
 <template>
   <v-container class="ma-0 pa-0">
     <ClassChoiceGroup />
-    <EquipmentContainer />
+    <v-row>
+      <v-col cols="8">
+        <EquipmentContainer />
+      </v-col>
+      <v-col cols="4">
+        <v-card outlined width="300" height="300" />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
