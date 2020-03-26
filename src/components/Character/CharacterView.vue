@@ -1,6 +1,6 @@
 <template>
   <v-img
-    :src="require(`@@/assets/classes/characters/${sex}/${activeClass()}.png`)"
+    :src="require(`@@/assets/classes/characters/${sex()}/${activeClass()}.png`)"
     width="250"
     height="400"
     style="margin: 0 auto;"
@@ -17,7 +17,8 @@ export default {
   },
   methods: {
     ...mapGetters({
-      activeClass: 'character/getActiveClass'
+      activeClass: 'character/getActiveClass',
+      sex: 'character/getSex'
     })
   }
 }

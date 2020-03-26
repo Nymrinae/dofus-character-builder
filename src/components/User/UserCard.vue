@@ -22,7 +22,7 @@
             @input="levelLimits"
           />
         </v-col>
-        <!-- INSERT SAVE POSSIBILITIES AND SUCH HERE -->
+        <UserActions />
       </v-row>
     </v-container>
   </v-card>
@@ -30,8 +30,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import UserActions from './UserActions'
 
 export default {
+  components: {
+    UserActions
+  },
   computed: {
     level() { return this.getCurrentLevel() },
     getImage() { return require(`@@/assets/classes/avatars/${this.activeClass()}.png`) }
