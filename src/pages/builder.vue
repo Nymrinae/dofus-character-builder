@@ -5,6 +5,7 @@
         <StatsCard />
       </v-col>
       <v-col cols="8" class="mt-n8">
+        <ClassChoiceGroup />
         <CharacterContainer />
       </v-col>
       <v-col cols="2" class="mt-4">
@@ -19,6 +20,7 @@
 <script>
 import {
   CharacterContainer,
+  ClassChoiceGroup,
   DefensiveStatsCard,
   ResistancesCard,
   StatsCard,
@@ -29,6 +31,7 @@ export default {
   middleware: 'auth',
   components: {
     CharacterContainer,
+    ClassChoiceGroup,
     DefensiveStatsCard,
     ResistancesCard,
     StatsCard,

@@ -1,5 +1,5 @@
 const isAuthMiddleware = ({ store, redirect }) => {
-  if (!store.state.auth.isAuth) {
+  if (!store.state.auth.isAuthed) {
     return redirect('/')
   }
 }

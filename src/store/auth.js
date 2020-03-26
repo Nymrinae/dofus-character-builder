@@ -1,7 +1,7 @@
 import { auth, db } from '../api/firebase'
 
 const state = () => ({
-  isAuth: false,
+  isAuthed: false,
   user: null
 })
 
@@ -10,7 +10,7 @@ const getters = {
 }
 
 const mutations = {
-  CHANGE_USER_STATE: (state) => { state.isAuth = !state.isAuth },
+  CHANGE_USER_STATE: (state) => { state.isAuthed = !state.isAuthed },
   SET_USER: (state, user) => { state.user = user }
 }
 

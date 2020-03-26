@@ -12,11 +12,15 @@
         <CharacterView
           type="feca"
         />
-        <v-row class="dofusSlots">
-          <v-cols cols="2" v-for="n in 6" :key="n">
+        <!-- <v-row class="dofusSlots">
+          <v-col
+            v-for="n in 6"
+            :key="n"
+            cols="2"
+          >
             <ItemContainer />
-          </v-cols>
-        </v-row>
+          </v-col>
+        </v-row> -->
       </v-col>
       <v-col cols="2" class="mt-4">
         <ItemContainer />
