@@ -1,7 +1,7 @@
 <template>
   <v-card class="mt-6" outlined tile>
     <v-container>
-      <v-subheader class="subtitle-2 font-weight-black">
+      <v-subheader class="subtitle-2 font-weight-bold mb-n2">
         STATISTIQUES
       </v-subheader>
       <v-row no-gutters>
@@ -33,6 +33,7 @@
           <v-text-field
             v-model="stat.value"
             type="number"
+            :min="0"
             hide-details
             width="200px"
           />
@@ -42,17 +43,19 @@
         </v-col>
       </v-row>
       <p
-        class="subtitle font-weight-medium mt-6 mb-1"
+        class="subtitle font-weight-medium mt-10 mb-n1"
         align="center"
         :style="{ color: !points || points >= 0 ? 'black' : 'red'}"
       >
-        {{ points ? points : 995 }} points restants
+        {{ points }} points restants
       </p>
     </v-container>
   </v-card>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data: () => ({
     statistics: [
@@ -66,8 +69,16 @@ export default {
   }),
   computed: {
     points() {
-      return 995 - this.statistics.reduce((a, b) => a + parseInt(b.value), 0)
+      const maxPoints = this.level() * 5 - 5
+      const points = maxPoints - this.statistics.reduce((a, b) => a + parseInt(b.value), 0)
+
+      return points > maxPoints ? maxPoints : points
     }
+  },
+  methods: {
+    ...mapGetters({
+      level: 'character/getLevel'
+    })
   }
 }
 </script>

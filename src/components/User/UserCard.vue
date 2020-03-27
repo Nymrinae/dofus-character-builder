@@ -13,7 +13,7 @@
         <v-col cols="auto" class="mr-2">
           <h2 class="ml-2"> {{ username() }} </h2>
           <v-text-field
-            v-model="level"
+            v-model="currentLevel"
             :min="1"
             :max="200"
             class="pr-2"
@@ -23,6 +23,7 @@
             style="width: 125px"
             type="number"
             @input="levelLimits"
+            @change="display"
           />
         </v-col>
         <UserActions />
@@ -32,26 +33,38 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import UserActions from './UserActions'
 
 export default {
   components: {
     UserActions
   },
+  data: () => ({
+    currentLevel: null
+  }),
   computed: {
-    level() { return this.getCurrentLevel() },
+    level() { return this.getLevel() },
     getImage() { return require(`@@/assets/classes/avatars/${this.activeClass()}.png`) }
   },
+  mounted() {
+    this.currentLevel = this.level
+  },
   methods: {
+    ...mapActions({
+      updateLevel: 'character/updateLevel'
+    }),
     ...mapGetters({
       activeClass: 'character/getActiveClass',
-      getCurrentLevel: 'character/getCurrentLevel',
+      getLevel: 'character/getLevel',
       username: 'auth/getUsername'
     }),
     levelLimits() {
       if (this.level < 0) { this.level = 1 }
       if (this.level > 200) { this.level = 200 }
+    },
+    display() {
+      this.updateLevel(this.currentLevel)
     }
   }
 }

@@ -1,24 +1,32 @@
 <template>
   <v-container class="pa-0">
-    <v-subheader class="subtitle-2 font-weight-black">
+    <v-subheader class="caption font-weight-bold my-2">
       {{ title }}
     </v-subheader>
-    <v-list-item-group>
-      <v-list-item
-        v-for="(item, i) in data"
-        :key="i"
-      >
+    <v-row
+      v-for="item in data"
+      :key="item"
+      justify="center"
+      class="my-n6 mx-2"
+      no-gutters
+      align="center"
+    >
+      <v-col cols="auto">
         <v-list-item-icon>
-          <v-img :src="require(`@@/assets/icons/${item.icon}.png`)" width="25" height="25" />
+          <v-img
+            :src="require(`@@/assets/icons/${item.icon}.png`)"
+            width="20"
+            height="20"
+          />
         </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title v-text="item.text" />
-        </v-list-item-content>
-        <v-list-item-action>
-          <v-list-item-title v-text="item.baseValue" />
-        </v-list-item-action>
-      </v-list-item>
-    </v-list-item-group>
+      </v-col>
+      <v-col cols="4">
+        <v-subheader class="font-weight-black" v-text="item.text" />
+      </v-col>
+      <v-col cols="2" class="ml-6">
+        <v-subheader class="font-weight-black" v-text="item.baseValue" />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

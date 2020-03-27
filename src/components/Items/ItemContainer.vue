@@ -11,7 +11,7 @@
 <script>
 export default {
   props: {
-    icon: { type: String, required: true, default: 'feca' }
+    icon: { type: String, default: 'feca' }
   }
 }
 </script>

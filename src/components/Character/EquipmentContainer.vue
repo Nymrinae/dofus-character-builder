@@ -34,8 +34,8 @@
 </template>
 
 <script>
+import ItemContainer from '../Items/ItemContainer'
 import CharacterView from './CharacterView'
-import ItemContainer from './ItemContainer'
 
 export default {
   components: {

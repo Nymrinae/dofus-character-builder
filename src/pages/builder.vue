@@ -11,7 +11,6 @@
         <UserCard />
         <CharacteristicsCard />
         <ResistancesCard />
-        <!-- <DefensiveStatsCard /> -->
       </v-col>
     </v-row>
   </v-container>
@@ -23,11 +22,10 @@ import {
   CharacterContainer,
   CharacteristicsCard,
   ClassChoiceGroup,
-  DefensiveStatsCard,
   ResistancesCard,
   StatsCard,
   UserCard
-} from '../components'
+} from '@/components'
 
 export default {
   middleware: 'auth',
@@ -35,7 +33,6 @@ export default {
     CharacterContainer,
     CharacteristicsCard,
     ClassChoiceGroup,
-    DefensiveStatsCard,
     ResistancesCard,
     StatsCard,
     UserCard
