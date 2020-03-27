@@ -10,15 +10,15 @@
             :src="getImage"
           />
         </v-col>
-        <v-col cols="auto">
+        <v-col cols="auto" class="mr-2">
           <h2 class="ml-2"> {{ username() }} </h2>
           <v-text-field
             v-model="level"
             :min="1"
             :max="200"
-            class="pr-4"
+            class="pr-2"
             hide-details
-            prefix="Niveau"
+            prefix="Level"
             prepend-icon="mdi-trophy-award"
             style="width: 125px"
             type="number"

@@ -45,9 +45,9 @@
       </v-row>
       <p
         class="subtitle font-weight-medium mt-4"
-        :style="{ color: points >= 0 ? 'black' : 'red'}"
+        :style="{ color: !points || points >= 0 ? 'black' : 'red'}"
       >
-        {{ points }} points restants
+        {{ points ? points : 995 }} points restants
       </p>
     </v-container>
   </v-card>
@@ -56,7 +56,6 @@
 <script>
 export default {
   data: () => ({
-    points: 995,
     statistics: [
       { name: 'hp', value: 0 },
       { name: 'sagesse', value: 0 },
@@ -65,7 +64,12 @@ export default {
       { name: 'chance', value: 0 },
       { name: 'agi', value: 0 }
     ]
-  })
+  }),
+  computed: {
+    points() {
+      return 995 - this.statistics.reduce((a, b) => a + parseInt(b.value), 0)
+    }
+  }
 }
 </script>
 
