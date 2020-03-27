@@ -9,8 +9,9 @@
       </v-col>
       <v-col cols="2" class="mt-4">
         <UserCard />
+        <CharacteristicsCard />
         <ResistancesCard />
-        <DefensiveStatsCard />
+        <!-- <DefensiveStatsCard /> -->
       </v-col>
     </v-row>
   </v-container>
@@ -20,6 +21,7 @@
 /* eslint-disable */
 import {
   CharacterContainer,
+  CharacteristicsCard,
   ClassChoiceGroup,
   DefensiveStatsCard,
   ResistancesCard,
@@ -31,6 +33,7 @@ export default {
   middleware: 'auth',
   components: {
     CharacterContainer,
+    CharacteristicsCard,
     ClassChoiceGroup,
     DefensiveStatsCard,
     ResistancesCard,

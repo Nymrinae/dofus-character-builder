@@ -3,7 +3,7 @@
     <v-subheader class="subtitle-2 font-weight-black">
       {{ title }}
     </v-subheader>
-    <v-list-item-group color="primary">
+    <v-list-item-group>
       <v-list-item
         v-for="(item, i) in data"
         :key="i"

@@ -6,7 +6,7 @@
       </v-subheader>
       <v-row no-gutters>
         <v-col cols="4" />
-        <v-col cols="4" align="center" class="ml-8">
+        <v-col cols="4" align="center" class="ml-4">
           <v-subheader class="font-weight-black"> Base </v-subheader>
         </v-col>
         <v-col cols="2" align="center">
@@ -17,6 +17,7 @@
         v-for="stat in statistics"
         :key="stat"
         justify="center"
+        class="my-n6"
         no-gutters
       >
         <v-col cols="4">
@@ -33,18 +34,16 @@
             v-model="stat.value"
             type="number"
             hide-details
-            class="mr-8"
-            outlined
+            width="200px"
           />
         </v-col>
         <v-col cols="auto">
-          <v-checkbox
-            class="pl-8"
-          />
+          <v-checkbox class="pl-8" />
         </v-col>
       </v-row>
       <p
-        class="subtitle font-weight-medium mt-4"
+        class="subtitle font-weight-medium mt-6 mb-1"
+        align="center"
         :style="{ color: !points || points >= 0 ? 'black' : 'red'}"
       >
         {{ points ? points : 995 }} points restants
