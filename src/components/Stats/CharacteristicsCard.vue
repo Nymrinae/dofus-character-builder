@@ -69,10 +69,13 @@ export default {
   }),
   computed: {
     points() {
-      const maxPoints = this.level() * 5 - 5
-      const points = maxPoints - this.statistics.reduce((a, b) => a + parseInt(b.value), 0)
+      const reducer = (a, b) => a + (parseInt(b.value) ? parseInt(b.value) : 0)
+      const points = this.maxPoints - this.statistics.reduce(reducer, 0)
 
-      return points > maxPoints ? maxPoints : points
+      return points > this.maxPoints ? this.maxPoints : points
+    },
+    maxPoints() {
+      return this.level() * 5 - 5
     }
   },
   methods: {
