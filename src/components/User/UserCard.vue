@@ -1,6 +1,6 @@
 <template>
   <v-card class="pa-2 mx-auto" outlined tile>
-    <v-container class="mb-10 pb-9">
+    <v-container class="mb-10">
       <v-row justify="space-around">
         <v-col cols="auto">
           <v-img
@@ -11,7 +11,7 @@
           />
         </v-col>
         <v-col cols="auto">
-          <h2> {{ username() }} </h2>
+          <h2 class="ml-2"> {{ username() }} </h2>
           <v-text-field
             v-model="level"
             type="number"
@@ -19,6 +19,9 @@
             :max="200"
             hide-details
             prefix="Niveau"
+            prepend-icon="mdi-trophy-award"
+            class="pr-4"
+            style="width: 125px"
             @input="levelLimits"
           />
         </v-col>

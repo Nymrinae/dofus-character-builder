@@ -5,19 +5,21 @@
       <v-col cols="8">
         <EquipmentContainer />
       </v-col>
-      <v-col cols="4">
-        <v-card outlined width="300" height="300" />
+      <v-col cols="4" align="center">
+        <CharacteristicsCard />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import CharacteristicsCard from '../Stats/CharacteristicsCard'
 import ClassChoiceGroup from './ClassChoiceGroup'
 import EquipmentContainer from './EquipmentContainer'
 
 export default {
   components: {
+    CharacteristicsCard,
     ClassChoiceGroup,
     EquipmentContainer
   }
