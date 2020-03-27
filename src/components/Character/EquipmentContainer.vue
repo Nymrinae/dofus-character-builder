@@ -21,7 +21,7 @@
         <ItemContainer v-for="c in 5" :key="c" />
       </v-col>
     </v-row>
-    <v-row class="ml-3 mr-n8 mt-n4">
+    <v-row class="ml-3 mr-n9 mt-n6">
       <v-col
         v-for="i in 4"
         :key="i"

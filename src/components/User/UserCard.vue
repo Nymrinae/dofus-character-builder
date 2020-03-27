@@ -14,14 +14,14 @@
           <h2 class="ml-2"> {{ username() }} </h2>
           <v-text-field
             v-model="level"
-            type="number"
             :min="1"
             :max="200"
+            class="pr-4"
             hide-details
             prefix="Niveau"
             prepend-icon="mdi-trophy-award"
-            class="pr-4"
             style="width: 125px"
+            type="number"
             @input="levelLimits"
           />
         </v-col>

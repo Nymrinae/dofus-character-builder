@@ -22,7 +22,7 @@
         <v-col cols="4">
           <v-list-item-icon>
             <v-img
-              :src="require(`@@/assets/icons/${stat}.png`)"
+              :src="require(`@@/assets/icons/${stat.name}.png`)"
               width="33"
               height="33"
             />
@@ -30,7 +30,7 @@
         </v-col>
         <v-col cols="4">
           <v-text-field
-            v-model="level"
+            v-model="stat.value"
             type="number"
             hide-details
             class="mr-8"
@@ -43,7 +43,10 @@
           />
         </v-col>
       </v-row>
-      <p class="subtitle font-weight-medium mt-4">
+      <p
+        class="subtitle font-weight-medium mt-4"
+        :style="{ color: points >= 0 ? 'black' : 'red'}"
+      >
         {{ points }} points restants
       </p>
     </v-container>
@@ -53,13 +56,18 @@
 <script>
 export default {
   data: () => ({
-    level: 0,
     points: 995,
-    statistics: ['hp', 'sagesse', 'force', 'int', 'chance', 'agi']
+    statistics: [
+      { name: 'hp', value: 0 },
+      { name: 'sagesse', value: 0 },
+      { name: 'force', value: 0 },
+      { name: 'int', value: 0 },
+      { name: 'chance', value: 0 },
+      { name: 'agi', value: 0 }
+    ]
   })
 }
 </script>
 
 <style>
-
 </style>
