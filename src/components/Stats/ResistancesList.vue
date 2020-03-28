@@ -4,8 +4,8 @@
     <v-list-item-group>
       <v-row no-gutters>
         <v-col
-          v-for="item in data"
-          :key="item"
+          v-for="(item, i) in data"
+          :key="`item#${i}`"
           cols="2"
         >
           <v-list-item class="px-6">

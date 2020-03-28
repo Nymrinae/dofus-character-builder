@@ -5,8 +5,8 @@
       show-arrows
     >
       <v-slide-item
-        v-for="n in classes()"
-        :key="n"
+        v-for="(c, i) in classes()"
+        :key="`class#${i}`"
         v-slot:default="{ active, toggle }"
       >
         <v-card
@@ -18,8 +18,8 @@
           @click="toggle"
         >
           <v-img
-            :src="require(`@@/assets/classes/avatars/${n.toLowerCase()}.png`)"
-            @click="updateClass(n)"
+            :src="require(`@@/assets/classes/avatars/${c.toLowerCase()}.png`)"
+            @click="updateClass(c)"
           />
         </v-card>
       </v-slide-item>

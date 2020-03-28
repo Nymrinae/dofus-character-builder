@@ -2,7 +2,7 @@
   <v-container class="pa-0 ma-0">
     <v-row>
       <v-col cols="3" align="center">
-        <ItemContainer v-for="c in 5" :key="c" />
+        <ItemContainer v-for="(c, i) in 5" :key="`item#${i}`" />
       </v-col>
       <v-col cols="6">
         <CharacterView />
@@ -18,13 +18,13 @@
         </v-row>
       </v-col>
       <v-col cols="3" align="center">
-        <ItemContainer v-for="c in 5" :key="c" />
+        <ItemContainer v-for="(c, j) in 5" :key="`item#${j}`" />
       </v-col>
     </v-row>
     <v-row class="ml-3 mr-n9 mt-n6">
       <v-col
-        v-for="i in 4"
-        :key="i"
+        v-for="(c, k) in 4"
+        :key="`item#${k}`"
         cols="3"
       >
         <ItemContainer />

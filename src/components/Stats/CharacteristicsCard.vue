@@ -14,8 +14,8 @@
         </v-col>
       </v-row>
       <v-row
-        v-for="stat in statistics"
-        :key="stat"
+        v-for="(stat, i) in statistics"
+        :key="`stat#${i}`"
         justify="center"
         class="my-n6"
         no-gutters

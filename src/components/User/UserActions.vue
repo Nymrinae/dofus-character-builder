@@ -3,7 +3,7 @@
     <v-row no-gutters class="ml-12 mt-6 mb-n8">
       <v-col
         v-for="item in icons"
-        :key="item"
+        :key="item.name"
         cols="4"
       >
         <v-btn

@@ -4,8 +4,8 @@
       {{ title }}
     </v-subheader>
     <v-row
-      v-for="item in data"
-      :key="item"
+      v-for="(item, i) in data"
+      :key="`item-${i}`"
       justify="center"
       class="my-n6 mx-2"
       no-gutters
