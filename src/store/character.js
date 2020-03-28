@@ -5,14 +5,44 @@ const state = () => ({
     'ouginak', 'pandawa', 'roublard', 'sacrieur', 'sadida', 'sram', 'steamer', 'xelor', 'zobal'
   ],
   level: 200,
-  sex: 'male'
+  sex: 'male',
+  stats: {
+    hp: 55,
+    pa: 6,
+    pm: 3,
+    ini: 0,
+    pp: 100,
+    po: 0,
+    invoc: 0,
+    sag: 0,
+    str: 0,
+    int: 0,
+    cha: 0,
+    agi: 0,
+    crit: 0,
+    heal: 0,
+    dmg: 0,
+    pui: 0,
+    rdmg: 0,
+    trapdmg: 0,
+    trappui: 0,
+    fuite: 0,
+    tacle: 0,
+    esqpa: 0,
+    retpa: 0,
+    esqpm: 0,
+    retpm: 0,
+    pods: 1000,
+    shield: 0
+  }
 })
 
 const getters = {
   getActiveClass: state => state.activeClass,
-  getLevel: state => state.level,
   getClasses: state => state.classes,
-  getSex: state => state.sex
+  getLevel: state => state.level,
+  getSex: state => state.sex,
+  getStats: state => state.stats
 }
 
 const mutations = {

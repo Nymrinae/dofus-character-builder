@@ -22,48 +22,63 @@
 </template>
 
 <script>
+/* eslint-disable */
+import { mapGetters } from 'vuex'
 import StatsList from './StatsList'
 
 export default {
   components: {
     StatsList
   },
-  data: () => ({
-    basicStats: [
-      { text: 'Vitalité', icon: 'hp', baseValue: '55' },
-      { text: 'PA', icon: 'pa', baseValue: '6' },
-      { text: 'PM', icon: 'pm', baseValue: '3' },
-      { text: 'Initiative', icon: 'ini', baseValue: '0' },
-      { text: 'Prospection', icon: 'pp', baseValue: '100' },
-      { text: 'Portée', icon: 'po', baseValue: '0' },
-      { text: 'Invocation', icon: 'invoc', baseValue: '0' }
-    ],
-    primaryStats: [
-      { text: 'Sagesse', icon: 'sagesse', baseValue: '0' },
-      { text: 'Force', icon: 'force', baseValue: '0' },
-      { text: 'Intelligence', icon: 'int', baseValue: '0' },
-      { text: 'Chance', icon: 'chance', baseValue: '0' },
-      { text: 'Agilité', icon: 'agi', baseValue: '0' }
-    ],
-    secondaryStats: [
-      { text: 'Critique', icon: 'crit', baseValue: '0' },
-      { text: 'Soin', icon: 'heal', baseValue: '0' },
-      { text: 'Dommages', icon: 'dmg', baseValue: '0' },
-      { text: 'Puissance', icon: 'pui', baseValue: '0' },
-      { text: 'Renvoi Dmg', icon: 'rdmg', baseValue: '0' },
-      { text: 'Piège Dmg', icon: 'piegedmg', baseValue: '0' },
-      { text: 'Piège Pui', icon: 'piegepui', baseValue: '0' }
-    ],
-    defensiveStats: [
-      { text: 'Fuite', icon: 'fuite', baseValue: '0' },
-      { text: 'Tacle', icon: 'tacle', baseValue: '0' },
-      { text: 'Esquive PA', icon: 'esqpa', baseValue: '0' },
-      { text: 'Retrait PA', icon: 'retpa', baseValue: '0' },
-      { text: 'Esquive PM', icon: 'esqpm', baseValue: '0' },
-      { text: 'Retrait PM', icon: 'retpm', baseValue: '0' },
-      { text: 'Pods', icon: 'pods', baseValue: '1000' },
-      { text: 'Bouclier', icon: 'shield', baseValue: '0' }
-    ]
-  })
+  computed: {
+    basicStats() {
+      return [
+        { text: 'Vitalité', icon: 'hp', baseValue: this.stats().hp },
+        { text: 'PA', icon: 'pa', baseValue: this.stats().pa },
+        { text: 'PM', icon: 'pm', baseValue: this.stats().pm  },
+        { text: 'Initiative', icon: 'ini', baseValue: this.stats().ini },
+        { text: 'Prospection', icon: 'pp', baseValue: this.stats().pp  },
+        { text: 'Portée', icon: 'po', baseValue: this.stats().po  },
+        { text: 'Invocation', icon: 'invoc', baseValue: this.stats().invoc  }
+      ]
+    },
+    primaryStats() {
+      return [
+        { text: 'Sagesse', icon: 'sagesse', baseValue: this.stats().sag },
+        { text: 'Force', icon: 'force', baseValue: this.stats().str },
+        { text: 'Intelligence', icon: 'int', baseValue: this.stats().int },
+        { text: 'Chance', icon: 'chance', baseValue: this.stats().cha },
+        { text: 'Agilité', icon: 'agi', baseValue: this.stats().agi }
+      ]
+    },
+    secondaryStats() {
+      return [
+        { text: 'Critique', icon: 'crit', baseValue: this.stats().crit },
+        { text: 'Soin', icon: 'heal', baseValue: this.stats().heal },
+        { text: 'Dommages', icon: 'dmg', baseValue: this.stats().dmg },
+        { text: 'Puissance', icon: 'pui', baseValue: this.stats().pui },
+        { text: 'Renvoi Dmg', icon: 'rdmg', baseValue: this.stats().rdmg },
+        { text: 'Piège Dmg', icon: 'piegedmg', baseValue: this.stats().trapdmg },
+        { text: 'Piège Pui', icon: 'piegepui', baseValue: this.stats().trappui }
+      ]
+    },
+    defensiveStats() {
+      return [
+        { text: 'Fuite', icon: 'fuite', baseValue: this.stats().fuite },
+        { text: 'Tacle', icon: 'tacle', baseValue: this.stats().tacle },
+        { text: 'Esquive PA', icon: 'esqpa', baseValue: this.stats().esqpa },
+        { text: 'Retrait PA', icon: 'retpa', baseValue: this.stats().retpa },
+        { text: 'Esquive PM', icon: 'esqpm', baseValue: this.stats().esqpm },
+        { text: 'Retrait PM', icon: 'retpm', baseValue: this.stats().retpm },
+        { text: 'Pods', icon: 'pods', baseValue: this.stats().pods },
+        { text: 'Bouclier', icon: 'shield', baseValue: this.stats().shield }
+      ]
+    }
+  },
+  methods: {
+    ...mapGetters({
+      stats: 'character/getStats'
+    })
+  }
 }
 </script>

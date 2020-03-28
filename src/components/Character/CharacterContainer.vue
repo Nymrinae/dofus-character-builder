@@ -6,6 +6,7 @@
         <EquipmentContainer />
       </v-col>
       <v-col cols="4" align="center">
+        <SearchItemCard />
       </v-col>
     </v-row>
   </v-container>
@@ -14,11 +15,13 @@
 <script>
 import ClassChoiceGroup from './ClassChoiceGroup'
 import EquipmentContainer from './EquipmentContainer'
+import { SearchItemCard } from '@/components'
 
 export default {
   components: {
     ClassChoiceGroup,
-    EquipmentContainer
+    EquipmentContainer,
+    SearchItemCard
   }
 }
 </script>
