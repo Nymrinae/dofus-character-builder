@@ -39,7 +39,7 @@
           />
         </v-col>
         <v-col cols="auto">
-          <v-checkbox class="pl-8" />
+          <v-checkbox :v-model="isChecked" class="pl-8" @change="click" />
         </v-col>
       </v-row>
       <p
@@ -54,10 +54,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data: () => ({
+    isChecked: false,
     statistics: [
       { name: 'hp', value: 0 },
       { name: 'sagesse', value: 0 },
@@ -79,9 +80,15 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      updateStats: 'character/updateStats'
+    }),
     ...mapGetters({
       level: 'character/getLevel'
-    })
+    }),
+    click() {
+      this.updateStats({ hp: 100 })
+    }
   }
 }
 </script>

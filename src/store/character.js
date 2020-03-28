@@ -48,7 +48,8 @@ const getters = {
 const mutations = {
   UPDATE_ACTIVE_CLASS: (state, newClass) => { state.activeClass = newClass },
   UPDATE_LEVEL: (state, level) => { state.level = level },
-  UPDATE_SEX: (state, sex) => { state.sex = sex }
+  UPDATE_SEX: (state, sex) => { state.sex = sex },
+  UPDATE_STATS: (state, stats) => { state.stats = stats }
 }
 
 const actions = {
@@ -60,6 +61,16 @@ const actions = {
   },
   updateSex: ({ commit }, newSex) => {
     commit('UPDATE_SEX', newSex)
+  },
+  updateStats: ({ commit, state }, incStats) => {
+    const newStats = Object.assign({}, state.stats)
+
+    Object.keys(newStats).map((e) => {
+      if (e in incStats) {
+        newStats[e] += incStats[e]
+      }
+    })
+    commit('UPDATE_STATS', newStats)
   }
 }
 
