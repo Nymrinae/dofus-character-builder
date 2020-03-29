@@ -36,10 +36,11 @@
             :min="0"
             hide-details
             width="200px"
+            @change="test(stat.name)"
           />
         </v-col>
         <v-col cols="auto">
-          <v-checkbox :v-model="isChecked" class="pl-8" @change="click" />
+          <v-checkbox :v-model="stat.isChecked" class="pl-8" @change="click(stat.name)" />
         </v-col>
       </v-row>
       <p
@@ -58,14 +59,13 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data: () => ({
-    isChecked: false,
     statistics: [
-      { name: 'hp', value: 0 },
-      { name: 'sagesse', value: 0 },
-      { name: 'force', value: 0 },
-      { name: 'int', value: 0 },
-      { name: 'chance', value: 0 },
-      { name: 'agi', value: 0 }
+      { name: 'hp', value: 0, lastValue: 0, isChecked: false },
+      { name: 'sagesse', value: 0, lastValue: 0, isChecked: false },
+      { name: 'force', value: 0, lastValue: 0, isChecked: false },
+      { name: 'int', value: 0, lastValue: 0, isChecked: false },
+      { name: 'chance', value: 0, lastValue: 0, isChecked: false },
+      { name: 'agi', value: 0, lastValue: 0, isChecked: false }
     ]
   }),
   computed: {
@@ -79,6 +79,9 @@ export default {
       return this.level() * 5 - 5
     }
   },
+  /* created() {
+    this.statistics.forEach(e => this.$watch(() => e, this.checkChange, { deep: true }))
+  } */
   methods: {
     ...mapActions({
       updateStats: 'character/updateStats'
@@ -86,9 +89,21 @@ export default {
     ...mapGetters({
       level: 'character/getLevel'
     }),
-    click() {
-      this.updateStats({ hp: 100 })
+    click(stat) {
+      const currentStat = this.statistics.filter(e => e.name === stat).shift()
+
+      this.updateStats({ [stat]: currentStat.isChecked ? -100 : 100 })
+      currentStat.isChecked = !currentStat.isChecked
+    },
+    test(stat) {
+      const currentStat = this.statistics.filter(e => e.name === stat).shift()
+
+      currentStat.lastValue = currentStat.value
+      this.updateStats({ [stat]: parseInt(currentStat.value) })
     }
+    /* checkChange(newVal, oldVal) {
+      console.log(newVal, oldVal)
+    } */
   }
 }
 </script>

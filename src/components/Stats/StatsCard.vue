@@ -44,10 +44,10 @@ export default {
     },
     primaryStats() {
       return [
-        { text: 'Sagesse', icon: 'sagesse', baseValue: this.stats().sag },
-        { text: 'Force', icon: 'force', baseValue: this.stats().str },
+        { text: 'Sagesse', icon: 'sagesse', baseValue: this.stats().sagesse },
+        { text: 'Force', icon: 'force', baseValue: this.stats().force },
         { text: 'Intelligence', icon: 'int', baseValue: this.stats().int },
-        { text: 'Chance', icon: 'chance', baseValue: this.stats().cha },
+        { text: 'Chance', icon: 'chance', baseValue: this.stats().chance },
         { text: 'Agilité', icon: 'agi', baseValue: this.stats().agi }
       ]
     },

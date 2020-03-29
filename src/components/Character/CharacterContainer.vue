@@ -13,9 +13,9 @@
 </template>
 
 <script>
+import SearchItemCard from '../Items/SearchItemCard'
 import ClassChoiceGroup from './ClassChoiceGroup'
 import EquipmentContainer from './EquipmentContainer'
-import { SearchItemCard } from '@/components'
 
 export default {
   components: {
