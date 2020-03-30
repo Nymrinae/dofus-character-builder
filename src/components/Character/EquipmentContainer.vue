@@ -51,13 +51,10 @@ export default {
     CharacterView,
     ItemContainer
   },
-  computed: mapState('character', {
+  computed: mapState('build', {
     items: state => state.build,
     dofusSprite: state => state.dofus.default
-  }),
-  mounted() {
-    console.log(this.items)
-  }
+  })
 }
 </script>
 

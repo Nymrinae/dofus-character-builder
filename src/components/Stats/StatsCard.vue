@@ -31,7 +31,7 @@ export default {
     StatsList
   },
   computed: {
-    ...mapState('character', ['stats']),
+    ...mapState('stats', ['stats']),
     basicStats() {
       return [
         { text: 'Vitalité', icon: 'hp', baseValue: this.stats.hp },

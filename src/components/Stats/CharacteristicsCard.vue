@@ -84,7 +84,7 @@ export default {
     this.statistics.forEach(e => this.$watch(() => e, this.checkChange, { deep: true }))
   } */
   methods: {
-    ...mapActions('character', ['updateStats']),
+    ...mapActions('stats', ['updateStats']),
     click(stat) {
       const currentStat = this.statistics.filter(e => e.name === stat).shift()
 
