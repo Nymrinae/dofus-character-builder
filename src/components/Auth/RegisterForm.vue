@@ -109,9 +109,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-      register: 'auth/register'
-    }),
+    ...mapActions('auth', ['register']),
     async validate() {
       if (this.$refs.form.validate()) {
         const user = {

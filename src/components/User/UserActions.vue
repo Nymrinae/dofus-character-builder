@@ -32,9 +32,7 @@ export default {
     ]
   }),
   methods: {
-    ...mapActions({
-      updateSex: 'character/updateSex'
-    }),
+    ...mapActions('character', ['updateSex']),
     save() {
       console.log('Save State into Firestore')
     }

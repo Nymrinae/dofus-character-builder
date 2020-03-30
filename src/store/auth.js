@@ -5,8 +5,6 @@ const state = () => ({
   user: null
 })
 
-const getters = {}
-
 const mutations = {
   CHANGE_USER_STATE: (state) => { state.isAuthed = !state.isAuthed },
   SET_USER: (state, user) => { state.user = user }
@@ -57,7 +55,6 @@ const actions = {
 
 export {
   actions,
-  getters,
   mutations,
   state
 }

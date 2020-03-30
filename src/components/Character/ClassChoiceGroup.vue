@@ -31,14 +31,8 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
-  computed: mapState('character', {
-    classes: state => state.classes
-  }),
-  methods: {
-    ...mapActions({
-      updateClass: 'character/updateClass'
-    })
-  }
+  computed: mapState('character', ['classes']),
+  methods: mapActions('character', ['updateClass'])
 }
 </script>
 

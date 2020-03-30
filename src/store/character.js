@@ -98,12 +98,6 @@ const state = () => ({
   }
 })
 
-const getters = {
-  getActiveClass: state => state.activeClass,
-  getSex: state => state.sex,
-  getStats: state => state.stats
-}
-
 const mutations = {
   UPDATE_ACTIVE_CLASS: (state, newClass) => { state.activeClass = newClass },
   UPDATE_LEVEL: (state, level) => { state.level = level },
@@ -135,7 +129,6 @@ const actions = {
 
 export {
   actions,
-  getters,
   mutations,
   state
 }

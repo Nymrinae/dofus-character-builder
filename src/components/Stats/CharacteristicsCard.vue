@@ -69,9 +69,7 @@ export default {
     ]
   }),
   computed: {
-    ...mapState('character', {
-      level: state => state.level
-    }),
+    ...mapState('character', ['level']),
     points() {
       const reducer = (a, b) => a + (parseInt(b.value) ? parseInt(b.value) : 0)
       const points = this.maxPoints - this.statistics.reduce(reducer, 0)
@@ -86,9 +84,7 @@ export default {
     this.statistics.forEach(e => this.$watch(() => e, this.checkChange, { deep: true }))
   } */
   methods: {
-    ...mapActions({
-      updateStats: 'character/updateStats'
-    }),
+    ...mapActions('character', ['updateStats']),
     click(stat) {
       const currentStat = this.statistics.filter(e => e.name === stat).shift()
 

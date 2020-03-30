@@ -13,10 +13,10 @@
 import { mapState } from 'vuex'
 
 export default {
-  computed: mapState('character', {
-    activeClass: state => state.activeClass,
-    sex: state => state.sex
-  })
+  computed: mapState('character', [
+    'activeClass',
+    'sex'
+  ])
 }
 </script>
 

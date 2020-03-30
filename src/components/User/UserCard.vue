@@ -7,7 +7,7 @@
             class="avatar"
             height="72"
             width="72"
-            :src="activeClass"
+            :src="require(`@@/assets/classes/avatars/${activeClass}.png`)"
           />
         </v-col>
         <v-col cols="auto" class="mr-2">
@@ -44,21 +44,17 @@ export default {
     currentLevel: null
   }),
   computed: {
-    ...mapState('character', {
-      activeClass: state => require(`@@/assets/classes/avatars/${state.activeClass}.png`),
-      level: state => state.level
-    }),
-    ...mapState('auth', {
-      username: state => state.user.username
-    })
+    ...mapState('auth', ['username']),
+    ...mapState('character', [
+      'activeClass',
+      'level'
+    ])
   },
   mounted() {
     this.currentLevel = this.level
   },
   methods: {
-    ...mapActions({
-      updateLevel: 'character/updateLevel'
-    }),
+    ...mapActions('character', ['updateLevel']),
     levelLimits() {
       if (this.level < 0) { this.level = 1 }
       if (this.level > 200) { this.level = 200 }
