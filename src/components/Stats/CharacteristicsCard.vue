@@ -60,12 +60,12 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data: () => ({
     statistics: [
-      { name: 'hp', value: 0, lastValue: 0, isChecked: false },
-      { name: 'sagesse', value: 0, lastValue: 0, isChecked: false },
-      { name: 'force', value: 0, lastValue: 0, isChecked: false },
-      { name: 'int', value: 0, lastValue: 0, isChecked: false },
-      { name: 'chance', value: 0, lastValue: 0, isChecked: false },
-      { name: 'agi', value: 0, lastValue: 0, isChecked: false }
+      { name: 'hp', value: 0, isChecked: false },
+      { name: 'sagesse', value: 0, isChecked: false },
+      { name: 'force', value: 0, isChecked: false },
+      { name: 'int', value: 0, isChecked: false },
+      { name: 'chance', value: 0, isChecked: false },
+      { name: 'agi', value: 0, isChecked: false }
     ]
   }),
   computed: {

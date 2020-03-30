@@ -2,7 +2,11 @@
   <v-container class="pa-0 ma-0">
     <v-row>
       <v-col cols="3" align="center">
-        <ItemContainer v-for="(c, i) in 5" :key="`item#${i}`" />
+        <ItemContainer
+          v-for="(item, i) in items.slice(0, 5)"
+          :key="`item#${i}`"
+          :icon="item.default"
+        />
       </v-col>
       <v-col cols="6">
         <CharacterView />
@@ -13,12 +17,16 @@
             cols="6"
             align="center"
           >
-            <ItemContainer />
+            <ItemContainer :icon="dofusSprite" />
           </v-col>
         </v-row>
       </v-col>
       <v-col cols="3" align="center">
-        <ItemContainer v-for="(c, j) in 5" :key="`item#${j}`" />
+        <ItemContainer
+          v-for="(item, j) in items.slice(5, 10)"
+          :key="`item#${j}`"
+          :icon="item.default"
+        />
       </v-col>
     </v-row>
     <v-row class="ml-3 mr-n9 mt-n6">
@@ -27,13 +35,14 @@
         :key="`item#${k}`"
         cols="3"
       >
-        <ItemContainer />
+        <ItemContainer :icon="dofusSprite" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ItemContainer from '../Items/ItemContainer'
 import CharacterView from './CharacterView'
 
@@ -41,6 +50,13 @@ export default {
   components: {
     CharacterView,
     ItemContainer
+  },
+  computed: mapState('character', {
+    items: state => state.build,
+    dofusSprite: state => state.dofus.default
+  }),
+  mounted() {
+    console.log(this.items)
   }
 }
 </script>
