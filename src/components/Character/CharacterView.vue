@@ -1,7 +1,7 @@
 <template>
   <v-container class="pa-0 mb-0">
     <v-img
-      :src="require(`@@/assets/classes/characters/${sex()}/${activeClass()}.png`)"
+      :src="require(`@@/assets/classes/characters/${sex}/${activeClass}.png`)"
       width="250"
       height="400"
       style="margin: 0 auto;"
@@ -10,15 +10,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
-  methods: {
-    ...mapGetters({
-      activeClass: 'character/getActiveClass',
-      sex: 'character/getSex'
-    })
-  }
+  computed: mapState('character', {
+    activeClass: state => state.activeClass,
+    sex: state => state.sex
+  })
 }
 </script>
 

@@ -7,11 +7,11 @@
             class="avatar"
             height="72"
             width="72"
-            :src="getImage"
+            :src="activeClass"
           />
         </v-col>
         <v-col cols="auto" class="mr-2">
-          <h2 class="ml-2"> {{ username() }} </h2>
+          <h2 class="ml-2"> {{ username }} </h2>
           <v-text-field
             v-model="currentLevel"
             :min="1"
@@ -23,7 +23,7 @@
             style="width: 125px"
             type="number"
             @input="levelLimits"
-            @change="display"
+            @change="updateLevel(currentLevel)"
           />
         </v-col>
         <UserActions />
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import UserActions from './UserActions'
 
 export default {
@@ -44,8 +44,13 @@ export default {
     currentLevel: null
   }),
   computed: {
-    level() { return this.getLevel() },
-    getImage() { return require(`@@/assets/classes/avatars/${this.activeClass()}.png`) }
+    ...mapState('character', {
+      activeClass: state => require(`@@/assets/classes/avatars/${state.activeClass}.png`),
+      level: state => state.level
+    }),
+    ...mapState('auth', {
+      username: state => state.user.username
+    })
   },
   mounted() {
     this.currentLevel = this.level
@@ -54,17 +59,9 @@ export default {
     ...mapActions({
       updateLevel: 'character/updateLevel'
     }),
-    ...mapGetters({
-      activeClass: 'character/getActiveClass',
-      getLevel: 'character/getLevel',
-      username: 'auth/getUsername'
-    }),
     levelLimits() {
       if (this.level < 0) { this.level = 1 }
       if (this.level > 200) { this.level = 200 }
-    },
-    display() {
-      this.updateLevel(this.currentLevel)
     }
   }
 }

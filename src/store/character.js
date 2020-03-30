@@ -65,7 +65,7 @@ const state = () => ({
     slot5: null,
     slot6: null
   },
-  level: 1,
+  level: 100,
   sex: 'male',
   stats: {
     hp: 55,
@@ -100,8 +100,6 @@ const state = () => ({
 
 const getters = {
   getActiveClass: state => state.activeClass,
-  getClasses: state => state.classes,
-  getLevel: state => state.level,
   getSex: state => state.sex,
   getStats: state => state.stats
 }

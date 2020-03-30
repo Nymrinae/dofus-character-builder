@@ -5,9 +5,7 @@ const state = () => ({
   user: null
 })
 
-const getters = {
-  getUsername: state => state.user.username
-}
+const getters = {}
 
 const mutations = {
   CHANGE_USER_STATE: (state) => { state.isAuthed = !state.isAuthed },

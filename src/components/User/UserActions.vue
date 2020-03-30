@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   data: () => ({
@@ -34,9 +34,6 @@ export default {
   methods: {
     ...mapActions({
       updateSex: 'character/updateSex'
-    }),
-    ...mapGetters({
-      sex: 'character/getSex'
     }),
     save() {
       console.log('Save State into Firestore')

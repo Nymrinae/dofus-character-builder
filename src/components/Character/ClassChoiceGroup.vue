@@ -5,7 +5,7 @@
       show-arrows
     >
       <v-slide-item
-        v-for="(c, i) in classes()"
+        v-for="(c, i) in classes"
         :key="`class#${i}`"
         v-slot:default="{ active, toggle }"
       >
@@ -28,15 +28,15 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
+  computed: mapState('character', {
+    classes: state => state.classes
+  }),
   methods: {
     ...mapActions({
       updateClass: 'character/updateClass'
-    }),
-    ...mapGetters({
-      classes: 'character/getClasses'
     })
   }
 }

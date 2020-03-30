@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   data: () => ({
@@ -69,6 +69,9 @@ export default {
     ]
   }),
   computed: {
+    ...mapState('character', {
+      level: state => state.level
+    }),
     points() {
       const reducer = (a, b) => a + (parseInt(b.value) ? parseInt(b.value) : 0)
       const points = this.maxPoints - this.statistics.reduce(reducer, 0)
@@ -76,7 +79,7 @@ export default {
       return points > this.maxPoints ? this.maxPoints : points
     },
     maxPoints() {
-      return this.level() * 5 - 5
+      return this.level * 5 - 5
     }
   },
   /* created() {
@@ -85,9 +88,6 @@ export default {
   methods: {
     ...mapActions({
       updateStats: 'character/updateStats'
-    }),
-    ...mapGetters({
-      level: 'character/getLevel'
     }),
     click(stat) {
       const currentStat = this.statistics.filter(e => e.name === stat).shift()
