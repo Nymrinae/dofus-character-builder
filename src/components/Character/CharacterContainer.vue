@@ -6,14 +6,14 @@
         <EquipmentContainer />
       </v-col>
       <v-col cols="4" align="center">
-        <SearchItemCard />
+        <SearchItemCardContainer />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import SearchItemCard from '../Items/SearchItemCard'
+import SearchItemCardContainer from '../Items/SearchItemCardContainer'
 import ClassChoiceGroup from './ClassChoiceGroup'
 import EquipmentContainer from './EquipmentContainer'
 
@@ -21,7 +21,7 @@ export default {
   components: {
     ClassChoiceGroup,
     EquipmentContainer,
-    SearchItemCard
+    SearchItemCardContainer
   }
 }
 </script>

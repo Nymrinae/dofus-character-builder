@@ -47,8 +47,8 @@ export default {
 
 <style>
 .img {
-  filter: grayscale(0.8) brightness(1.1);
-  opacity: 0.8;
+  filter: grayscale(1) brightness(1.3);
+  opacity: 0.6;
 }
 .itemInfo {
   z-index: 2;

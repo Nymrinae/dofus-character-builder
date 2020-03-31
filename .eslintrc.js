@@ -27,7 +27,7 @@ module.exports = {
       },
     }],
     "vue/singleline-html-element-content-newline": ["error", {
-      "ignores": ["h1", "h2", "h3", "h4", "h5", "h6", "div", "p", "v-icon", "span", "v-subheader", "v-list-item-title", "v-list-item"]
+      "ignores": ["a", "h1", "h2", "h3", "h4", "h5", "h6", "div", "p", "v-icon", "span", "v-subheader", "v-list-item-title", "v-list-item"]
     }],
     'no-console': 'off',
     "no-unused-expressions": ["error", {"allowTernary": true}],

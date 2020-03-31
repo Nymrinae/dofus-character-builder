@@ -5,7 +5,6 @@ import ClassChoiceGroup from './Character/ClassChoiceGroup'
 import CharacterView from './Character/CharacterView'
 
 import ItemContainer from './Items/ItemContainer'
-import SearchItemCard from './Items/SearchItemCard'
 
 import CharacteristicsCard from './Stats/CharacteristicsCard'
 import ResistancesCard from './Stats/ResistancesCard'
@@ -21,7 +20,6 @@ export {
   ClassChoiceGroup,
   ItemContainer,
   ResistancesCard,
-  SearchItemCard,
   StatsCard,
   UserCard
 }
