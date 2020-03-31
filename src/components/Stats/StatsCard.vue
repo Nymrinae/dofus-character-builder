@@ -22,7 +22,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { mapState } from 'vuex'
 import StatsList from './StatsList'
 
@@ -36,11 +35,11 @@ export default {
       return [
         { text: 'Vitalité', icon: 'hp', baseValue: this.stats.hp },
         { text: 'PA', icon: 'pa', baseValue: this.stats.pa },
-        { text: 'PM', icon: 'pm', baseValue: this.stats.pm  },
+        { text: 'PM', icon: 'pm', baseValue: this.stats.pm },
         { text: 'Initiative', icon: 'ini', baseValue: this.stats.ini },
-        { text: 'Prospection', icon: 'pp', baseValue: this.stats.pp  },
-        { text: 'Portée', icon: 'po', baseValue: this.stats.po  },
-        { text: 'Invocation', icon: 'invoc', baseValue: this.stats.invoc  }
+        { text: 'Prospection', icon: 'pp', baseValue: this.stats.pp },
+        { text: 'Portée', icon: 'po', baseValue: this.stats.po },
+        { text: 'Invocation', icon: 'invoc', baseValue: this.stats.invoc }
       ]
     },
     primaryStats() {

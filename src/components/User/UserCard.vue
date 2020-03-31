@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-2 mx-auto" outlined tile>
+  <v-card class="pa-2 mx-auto" style="position: relative" outlined tile>
     <v-container class="mb-10">
       <v-row justify="space-around">
         <v-col cols="auto">
@@ -11,7 +11,7 @@
           />
         </v-col>
         <v-col cols="auto" class="mr-2">
-          <h2 class="ml-2"> {{ username }} </h2>
+          <h2 class="ml-2"> {{ user.username }} </h2>
           <v-text-field
             v-model="currentLevel"
             :min="1"
@@ -44,7 +44,7 @@ export default {
     currentLevel: null
   }),
   computed: {
-    ...mapState('auth', ['username']),
+    ...mapState('auth', ['user']),
     ...mapState('character', [
       'activeClass',
       'level'

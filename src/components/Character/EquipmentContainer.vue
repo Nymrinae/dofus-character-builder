@@ -5,7 +5,9 @@
         <ItemContainer
           v-for="(item, i) in items.slice(0, 5)"
           :key="`item#${i}`"
+          :free="item.current"
           :icon="item.default"
+          :type="item.type"
         />
       </v-col>
       <v-col cols="6">
@@ -25,7 +27,9 @@
         <ItemContainer
           v-for="(item, j) in items.slice(5, 10)"
           :key="`item#${j}`"
+          :free="item.current"
           :icon="item.default"
+          :type="item.type"
         />
       </v-col>
     </v-row>
@@ -35,7 +39,9 @@
         :key="`item#${k}`"
         cols="3"
       >
-        <ItemContainer :icon="dofusSprite" />
+        <ItemContainer
+          :icon="dofusSprite"
+        />
       </v-col>
     </v-row>
   </v-container>

@@ -1,32 +1,35 @@
+/* eslint-disable */
+import axios from 'axios'
+
 const state = () => ({
   build: [
     {
-      type: 'amulet',
+      type: 'Amulette',
       default: '1229_0',
       current: null
     },
     {
-      type: 'shield',
+      type: 'Bouclier',
       default: '82063_0',
       current: null
     },
     {
-      type: 'ring1',
+      type: 'Anneau',
       default: '9211_0',
       current: null
     },
     {
-      type: 'belt',
+      type: 'Ceinture',
       default: '10243_0',
       current: null
     },
     {
-      type: 'boots',
+      type: 'Bottes',
       default: '11235_0',
       current: null
     },
     {
-      type: 'hat',
+      type: 'Chapeau',
       default: '16284_0',
       current: null
     },
@@ -36,12 +39,12 @@ const state = () => ({
       current: null
     },
     {
-      type: 'ring2',
+      type: 'Anneau',
       default: '9211_0',
       current: null
     },
     {
-      type: 'cape',
+      type: 'Cape',
       default: '17291_0',
       current: null
     },
@@ -51,6 +54,8 @@ const state = () => ({
       current: null
     }
   ],
+  currentActiveItemType: null,
+  currentItems: null,
   dofus: {
     default: '23002_0',
     slot1: null,
@@ -63,11 +68,18 @@ const state = () => ({
 })
 
 const mutations = {
-
+  SET_ITEM_TYPE: (state, itemType) => { state.currentActiveItemType = itemType },
+  SET_ITEMS: (state, items) => { state.currentItems = items }
 }
 
 const actions = {
+  setItemType: async ({ commit }, itemType) => {
+    const res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
+    const data = res.data.filter(e => e.type === itemType)
 
+    commit('SET_ITEM_TYPE', itemType)
+    commit('SET_ITEMS', data)
+  }
 }
 
 export {
