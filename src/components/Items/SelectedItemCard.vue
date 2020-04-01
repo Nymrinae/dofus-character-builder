@@ -7,30 +7,40 @@
       />
       <v-card-text>
         <v-autocomplete
-          :items="itemNames"
+          v-model="item"
+          :items="currentItems"
           color="white"
           :placeholder="`Cherche ton ${type} ici !`"
           prepend-icon="mdi-magnify"
+          item-text="name"
+          clearable
         />
       </v-card-text>
-      <v-card-text> test </v-card-text>
+      <ItemTypeList
+        v-if="!item"
+        :items="currentItems"
+      />
+      <v-card-text v-else v-text="`there is an item`" />
     </v-container>
   </v-card>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import ItemTypeList from './ItemTypeList'
 
 export default {
+  components: {
+    ItemTypeList
+  },
   props: {
     type: { type: String, required: true }
   },
+  data: () => ({
+    item: null
+  }),
   computed: {
-    ...mapState('build', ['currentItems']),
-    itemNames() { return this.currentItems.map(e => e.name) }
-  },
-  mounted() {
-    console.log(this.itemNames)
+    ...mapState('build', ['currentItems'])
   }
 }
 </script>
