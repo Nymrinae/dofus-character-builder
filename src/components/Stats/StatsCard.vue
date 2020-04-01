@@ -57,7 +57,7 @@ export default {
         { text: 'Soin', icon: 'heal', baseValue: this.stats.heal },
         { text: 'Dommages', icon: 'dmg', baseValue: this.stats.dmg },
         { text: 'Puissance', icon: 'pui', baseValue: this.stats.pui },
-        { text: 'Renvoi Dmg', icon: 'rdmg', baseValue: this.stats.rdmg },
+        { text: 'Renv. Dmg', icon: 'rdmg', baseValue: this.stats.rdmg },
         { text: 'Piège Dmg', icon: 'piegedmg', baseValue: this.stats.trapdmg },
         { text: 'Piège Pui', icon: 'piegepui', baseValue: this.stats.trappui }
       ]

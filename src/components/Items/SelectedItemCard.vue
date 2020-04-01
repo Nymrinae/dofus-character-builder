@@ -1,8 +1,8 @@
 <template>
-  <v-card class="mt-6" width="400" height="765" outlined>
+  <v-card class="mt-6" width="400" height="735" outlined>
     <v-container>
       <v-card-text
-        class="headline font-weight-black pa-6"
+        class="headline font-weight-black"
         v-text="type"
       />
       <v-card-text>
@@ -16,6 +16,7 @@
           :item-value="item"
           clearable
           return-object
+          class="mt-n3"
         />
       </v-card-text>
       <ItemInfoCard
