@@ -10,28 +10,36 @@
           v-model="item"
           :items="currentItems"
           color="white"
-          :placeholder="`Cherche ton ${type} ici !`"
+          :placeholder="`Cherche un item...`"
           prepend-icon="mdi-magnify"
           item-text="name"
+          :item-value="item"
           clearable
+          return-object
         />
       </v-card-text>
-      <ItemTypeList
+      <ItemInfoCard
+        v-if="item"
+        :item="item"
+      />
+      <!-- <ItemTypeList
         v-if="!item"
         :items="currentItems"
       />
-      <v-card-text v-else v-text="`there is an item`" />
+      <v-card-text v-else v-text="`there is an item`" /> -->
     </v-container>
   </v-card>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import ItemTypeList from './ItemTypeList'
+import ItemInfoCard from './ItemInfoCard'
+// import ItemTypeList from './ItemTypeList'
 
 export default {
   components: {
-    ItemTypeList
+    ItemInfoCard
+    // ItemTypeList
   },
   props: {
     type: { type: String, required: true }
@@ -41,6 +49,9 @@ export default {
   }),
   computed: {
     ...mapState('build', ['currentItems'])
+  },
+  mounted() {
+    console.log(this.currentItems)
   }
 }
 </script>
