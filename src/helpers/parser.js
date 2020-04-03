@@ -1,18 +1,33 @@
 /* eslint-disable */
 const stats = {
   'Vitalité': 'hp',
-  'Force': ''
+  'Intelligence': 'int',
+  'Force': 'force',
+  'Soins': 'heal'
 }
 
-const parseRes = object => {
-  const items = []
 
-  object.map(e => items.push({
+const cleanItem = parsedItemStat => {
+  parsedItemStat.map(elem => {
+    elem['name'] = stats[elem.name]
+  })
+  return parsedItemStat
+}
+
+const parseItem = itemStats => {
+  const parsedItemStats = []
+
+  itemStats.map(e => parsedItemStats.push({
     name: Object.keys(e)[0],
     ...Object.values(e)[0]
   }))
 
-  return items
+  console.log('parseitem:', parsedItemStats)
+
+  return parsedItemStats
 }
 
-export default parseRes
+export {
+  cleanItem,
+  parseItem
+}

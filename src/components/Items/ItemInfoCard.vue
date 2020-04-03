@@ -34,20 +34,28 @@
 <script>
 /* eslint-disable */
 import { getData } from '@/api/api'
-import parseItem from '@/helpers/parser'
+import { parseItem } from '@/helpers/parser'
+import { cleanItem } from '../../helpers/parser'
 
 export default {
   props: {
     item: { type: Object, required: true }
   },
   methods: {
-    getLocalImageLink: url => require(`@@/assets/build/${url.split('/').slice(-1)[0]}`),
+    getLocalImageLink: url => {
+      try {
+        return require(`@@/assets/build/${url.split('/').slice(-1)[0]}`)
+      } catch (e) {
+        throw e
+      }
+    },
     parseStat(stat) {
       console.log(stat)
-      const test = parseItem([stat])
-
+      const test = parseItem(stat)
       console.log(test)
-      return stat
+      const caca = cleanItem(test)
+
+      return caca
     },
     async fetchAPI() {
       await getData()
