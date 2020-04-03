@@ -26,7 +26,22 @@ const state = () => ({
     esqpm: 0,
     retpm: 0,
     pods: 1000,
-    shield: 0
+    shield: 0,
+    dmgneutre: 0,
+    dmgterre: 0,
+    dmgfeu: 0,
+    dmgeau: 0,
+    dmgair: 0,
+    varresneutre: 0,
+    varresterre: 0,
+    varresfeu: 0,
+    varreseau: 0,
+    varresair: 0,
+    fixresneutre: 0,
+    fixresterre: 0,
+    fixresfeu: 0,
+    fixreseau: 0,
+    fixresair: 0
   }
 })
 

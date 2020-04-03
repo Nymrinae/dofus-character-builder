@@ -1,9 +1,25 @@
 /* eslint-disable */
 const stats = {
-  'Vitalité': 'hp',
-  'Intelligence': 'int',
+  'Agilité': 'agi',
+  'Critique': 'crit', // need to parse it separately (includes('Critique')
+  // need to parse it separately (includes type)
+  'Dommages Air': '',
+  'Dommages Eau': '',
+  'Dommages Feu': '',
+  'Dommages Neutre': '',
+  'Dommages Terre': '',
   'Force': 'force',
-  'Soins': 'heal'
+  'Fuite': 'fuite',
+  'Initiative': 'ini',
+  'Intelligence': 'int',
+  'PA': 'pa',
+  'PM': 'pm',
+  'Portée': 'po',
+  'Prospection': 'pp',
+  'Sagesse': 'sag',
+  'Soins': 'heal',
+  'Tacle': 'tacle',
+  'Vitalité': 'hp'
 }
 
 

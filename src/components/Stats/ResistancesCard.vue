@@ -18,35 +18,43 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ResistancesList from './ResistancesList'
 
 export default {
   components: {
     ResistancesList
   },
-  data: () => ({
-    dommages: [
-      { icon: 'neutre', baseValue: '0' },
-      { icon: 'terre', baseValue: '0' },
-      { icon: 'feu', baseValue: '0' },
-      { icon: 'eau', baseValue: '0' },
-      { icon: 'air', baseValue: '0' }
-    ],
-    variableRes: [
-      { icon: 'neutre', baseValue: '0' },
-      { icon: 'terre', baseValue: '0' },
-      { icon: 'feu', baseValue: '0' },
-      { icon: 'eau', baseValue: '0' },
-      { icon: 'air', baseValue: '0' }
-    ],
-    fixedRes: [
-      { icon: 'neutre', baseValue: '0' },
-      { icon: 'terre', baseValue: '0' },
-      { icon: 'feu', baseValue: '0' },
-      { icon: 'eau', baseValue: '0' },
-      { icon: 'air', baseValue: '0' }
-    ]
-  })
+  computed: {
+    ...mapState('stats', ['stats']),
+    dommages() {
+      return [
+        { icon: 'neutre', baseValue: this.stats.dmgneutre },
+        { icon: 'terre', baseValue: this.stats.dmgterre },
+        { icon: 'feu', baseValue: this.stats.dmgfeu },
+        { icon: 'eau', baseValue: this.stats.dmgeau },
+        { icon: 'air', baseValue: this.stats.dmgair }
+      ]
+    },
+    variableRes() {
+      return [
+        { icon: 'neutre', baseValue: this.stats.varresneutre },
+        { icon: 'terre', baseValue: this.stats.varresterre },
+        { icon: 'feu', baseValue: this.stats.varresfeu },
+        { icon: 'eau', baseValue: this.stats.varreseau },
+        { icon: 'air', baseValue: this.stats.varresair }
+      ]
+    },
+    fixedRes() {
+      return [
+        { icon: 'neutre', baseValue: this.stats.fixresneutre },
+        { icon: 'terre', baseValue: this.stats.fixresterre },
+        { icon: 'feu', baseValue: this.stats.fixresfeu },
+        { icon: 'eau', baseValue: this.stats.fixreseau },
+        { icon: 'air', baseValue: this.stats.fixresair }
+      ]
+    }
+  }
 }
 </script>
 
