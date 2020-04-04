@@ -47,7 +47,7 @@ export default {
         { text: 'Sagesse', icon: 'sagesse', baseValue: this.stats.sagesse },
         { text: 'Force', icon: 'force', baseValue: this.stats.force },
         { text: 'Intelligence', icon: 'int', baseValue: this.stats.int },
-        { text: 'Chance', icon: 'chance', baseValue: this.stats.chance },
+        { text: 'Chance', icon: 'cha', baseValue: this.stats.cha },
         { text: 'Agilité', icon: 'agi', baseValue: this.stats.agi }
       ]
     },
@@ -58,8 +58,8 @@ export default {
         { text: 'Dommages', icon: 'dmg', baseValue: this.stats.dmg },
         { text: 'Puissance', icon: 'pui', baseValue: this.stats.pui },
         { text: 'Renv. Dmg', icon: 'rdmg', baseValue: this.stats.rdmg },
-        { text: 'Piège Dmg', icon: 'piegedmg', baseValue: this.stats.trapdmg },
-        { text: 'Piège Pui', icon: 'piegepui', baseValue: this.stats.trappui }
+        { text: 'Piège Dmg', icon: 'trapdmg', baseValue: this.stats.trapdmg },
+        { text: 'Piège Pui', icon: 'trappui', baseValue: this.stats.trappui }
       ]
     },
     defensiveStats() {

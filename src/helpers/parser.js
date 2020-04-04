@@ -2,8 +2,8 @@
 const stats = {
   'Agilité': 'agi',
   'Chance': 'cha',
-  'Critique': 'crit', // need to parse it separately (includes('Critique')
-  // need to parse it separately (includes type)
+  'Critique': 'crit',
+  'Dommages': 'dmg',
   'Dommages Air': 'dmgair',
   'Dommages Eau': 'dmgeau',
   'Dommages Feu': 'dmgfeu',
@@ -14,6 +14,7 @@ const stats = {
   'Fuite': 'fuite',
   'Initiative': 'ini',
   'Intelligence': 'int',
+  'Invocations': 'invoc',
   'PA': 'pa',
   'PM': 'pm',
   'Portée': 'po',
@@ -24,7 +25,7 @@ const stats = {
   'Résistance Feu': 'varresfeu',
   'Résistance Neutre': 'varresneutre',
   'Résistance Terre': 'varresterre',
-  'Sagesse': 'sag',
+  'Sagesse': 'sagesse',
   'Soins': 'heal',
   'Tacle': 'tacle',
   'Vitalité': 'hp'
@@ -33,23 +34,22 @@ const stats = {
 
 const cleanItem = parsedItemStat => {
   parsedItemStat
-    .map(elem => {
-      elem['name'] = stats[elem.name]
-    })
-  
-  console.log('parseditemstat:', parsedItemStat)
+    .map(elem => elem['name'] = stats[elem.name])
+    .filter(elem => elem.name != undefined)
+
   return parsedItemStat
 }
 
 const parseItem = itemStats => {
-  console.log('itemStat:', itemStats)
+  console.log('itemstat:', itemStats)
   const parsedItemStats = []
 
   itemStats.map(e => parsedItemStats.push({
-    name: getRealStatName(Object.keys(e)[0]), // /\bCritique\b/.test(Object.keys(e)[0]) ? 'Critique' : Object.keys(e)[0],
+    name: getRealStatName(Object.keys(e)[0]),
     ...Object.values(e)[0]
   }))
 
+  console.log('parsed:', parsedItemStats)
   return parsedItemStats
 }
 
@@ -66,7 +66,12 @@ const getRealStatName = stat => {
   return stat
 }
 
+const getKeyByValue = value => {
+  return Object.keys(stats).find(k => stats[k] === value)
+}
+
 export {
   cleanItem,
+  getKeyByValue,
   parseItem
 }

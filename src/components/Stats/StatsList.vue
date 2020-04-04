@@ -35,7 +35,8 @@ export default {
   props: {
     title: { type: String, required: true },
     data: { type: Array, required: true }
-  }
+  },
+  mounted() { console.log(this.data) }
 }
 </script>
 

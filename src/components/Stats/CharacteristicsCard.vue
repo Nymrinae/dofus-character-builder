@@ -64,7 +64,7 @@ export default {
       { name: 'sagesse', value: 0, isChecked: false },
       { name: 'force', value: 0, isChecked: false },
       { name: 'int', value: 0, isChecked: false },
-      { name: 'chance', value: 0, isChecked: false },
+      { name: 'cha', value: 0, isChecked: false },
       { name: 'agi', value: 0, isChecked: false }
     ]
   }),

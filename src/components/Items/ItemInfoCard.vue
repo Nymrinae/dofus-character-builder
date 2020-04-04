@@ -3,23 +3,35 @@
     <v-row no-gutters class="align-center">
       <v-img
         :src="getLocalImageLink(item.imgUrl)"
-        width="150px"
-        height="150px"
+        width="100px"
+        height="100px"
         contain
       />
     </v-row>
     <v-row no-gutters>
       <v-card-text
         class="text-justify"
-        v-text="item.description"
+        v-text="getItemDescription(item.description)"
       />
     </v-row>
-    <v-row
-      v-for="(stat, s) in parseStat(item.statistics)"
-      :key="`stat#${s}`"
-    >
-      <v-col cols="12">
-        {{ stat }}
+    <v-row no-gutters>
+      <v-col
+        v-for="(stat, s) in parseStat(item.statistics)"
+        :key="`stat#${s}`"
+        cols="6"
+      >
+        <v-row no-gutters align="center" justify="center">
+          <v-col cols="2">
+            <v-img
+              :src="getLocalIconLink(stat.name)"
+              width="33"
+              height="33"
+            />
+          </v-col>
+          <v-col cols="9">
+            <v-subheader class="font-weight-black" v-text="printStat(stat)" />
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
     <v-card-actions class="justify-end">
@@ -32,15 +44,33 @@
 
 <script>
 /* eslint-disable */
-import { getData } from '@/api/api'
-import { parseItem } from '@/helpers/parser'
-import { cleanItem } from '../../helpers/parser'
+import {
+  cleanItem,
+  getKeyByValue,
+  parseItem
+} from '@/helpers/parser'
 
 export default {
   props: {
     item: { type: Object, required: true }
   },
   methods: {
+    getKey: value => {
+      return getKeyByValue(value)
+    },
+    getItemDescription: desc => {
+      const parseDesc = desc.split('.')
+
+      return parseDesc.length > 3
+        ? parseDesc.slice(0, 2).join('.') + '...'
+        : desc
+    },
+    getLocalIconLink: statName => {
+      const elements = ['air', 'feu', 'eau', 'neutre', 'terre']
+      const checkElem = elements.map(e => statName.includes(e)).indexOf(true)
+
+      return require(`@@/assets/icons/${ checkElem >= 0 ? elements[checkElem] : statName}.png`)
+    },
     getLocalImageLink: url => {
       try {
         return require(`@@/assets/build/${url.split('/').slice(-1)[0]}`)
@@ -54,10 +84,15 @@ export default {
 
       return caca
     },
+    printStat(stat) {
+      const name = getKeyByValue(stat.name)
+
+      return /* ${name}: */ `${stat.min}${stat.max ? `-${stat.max}` : ''}`
+    },
     async fetchAPI() {
       await getData()
     }
-  }
+  },
 }
 </script>
 

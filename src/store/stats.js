@@ -10,7 +10,7 @@ const state = () => ({
     sagesse: 0,
     force: 0,
     int: 0,
-    chance: 0,
+    cha: 0,
     agi: 0,
     crit: 0,
     heal: 0,
