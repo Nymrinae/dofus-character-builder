@@ -92,9 +92,9 @@ export default {
     },
     getLocalImageLink(url) {
       try {
-        this.currentItemURL = `@@/assets/build/${url.split('/').slice(-1)[0]}`
+        this.currentItemURL = `@@/assets/items/${url.split('/').slice(-1)[0]}`
 
-        return require(`@@/assets/build/${url.split('/').slice(-1)[0]}`)
+        return require(`@@/assets/items/${url.split('/').slice(-1)[0]}`)
       } catch (e) {
         this.currentItemURL = '@@/assets/logo.png'
         return require('@@/assets/logo.png')

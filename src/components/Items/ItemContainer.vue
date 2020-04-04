@@ -20,9 +20,6 @@
             v-if="hover && item.current"
             class="itemInfo"
           >
-            <v-btn @click="test">
-              test
-            </v-btn>
             <v-card-title v-text="item" />
           </v-card>
         </v-container>
@@ -44,7 +41,7 @@ export default {
     }),
     getIcon() {
       return this.item.current
-        ? require(`@@/assets/build/${this.item.current.icon}`)
+        ? require(`@@/assets/items/${this.item.current.icon}`)
         : `https://www.dofusbook.net/static/items/${this.item.default}.png`
     }
   }
