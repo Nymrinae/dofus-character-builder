@@ -41,7 +41,17 @@ export default {
     item: null
   }),
   computed: {
-    ...mapState('build', ['currentItems'])
+    ...mapState('build', [
+      'currentItems',
+      'currentActiveItemType'
+    ])
+  },
+  watch: {
+    currentActiveItemType(newValue, oldValue) {
+      if (newValue) {
+        this.item = null
+      }
+    }
   }
 }
 </script>
