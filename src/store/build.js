@@ -56,15 +56,14 @@ const state = () => ({
   ],
   currentActiveItemType: null,
   currentItems: null,
-  dofus: {
-    default: '23002_0',
-    slot1: null,
-    slot2: null,
-    slot3: null,
-    slot4: null,
-    slot5: null,
-    slot6: null
-  }
+  dofus: [
+    { default: '23002_0', current: null },
+    { default: '23002_0', current: null },
+    { default: '23002_0', current: null },
+    { default: '23002_0', current: null },
+    { default: '23002_0', current: null },
+    { default: '23002_0', current: null }
+  ]
 })
 
 const mutations = {

@@ -11,13 +11,13 @@
       >
         <v-avatar size="75" class="ma-3">
           <v-img
-            :src="`https://www.dofusbook.net/static/items/${icon}.png`"
+            :src="`https://www.dofusbook.net/static/items/${item.default}.png`"
             class="img"
           />
         </v-avatar>
         <v-container style="width: 300px">
           <v-card
-            v-if="hover"
+            v-if="hover && item.current"
             class="itemInfo"
           >
             <v-btn @click="test">
@@ -36,8 +36,7 @@ import { mapActions } from 'vuex'
 
 export default {
   props: {
-    item: { type: Object, required: true },
-    icon: { type: String, required: true }
+    item: { type: Object, required: true }
   },
   methods: {
     ...mapActions({

@@ -13,12 +13,14 @@
         <CharacterView />
         <v-row style="margin-top: 86px">
           <v-col
-            v-for="i in 2"
-            :key="i"
+            v-for="(item, d) in dofus.slice(0, 2)"
+            :key="`item-${d}`"
             cols="6"
             align="center"
           >
-            <ItemContainer :icon="dofusSprite" />
+            <ItemContainer
+              :item="item"
+            />
           </v-col>
         </v-row>
       </v-col>
@@ -27,17 +29,16 @@
           v-for="(item, j) in items.slice(5, 10)"
           :key="`item#${j}`"
           :item="item"
-          :icon="item.default"
         />
       </v-col>
     </v-row>
     <v-row class="ml-3 mr-n9 mt-n6">
       <v-col
-        v-for="(c, k) in 4"
+        v-for="(item, k) in dofus.slice(2, 6)"
         :key="`item#${k}`"
         cols="3"
       >
-        <ItemContainer :icon="dofusSprite" />
+        <ItemContainer :item="item" />
       </v-col>
     </v-row>
   </v-container>
@@ -55,7 +56,7 @@ export default {
   },
   computed: mapState('build', {
     items: state => state.build,
-    dofusSprite: state => state.dofus.default
+    dofus: state => state.dofus
   })
 }
 </script>
