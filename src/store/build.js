@@ -4,65 +4,65 @@ import axios from 'axios'
 const state = () => ({
   build: [
     {
-      type: 'Amulette',
+      current: null,
       default: '1229_0',
-      current: null
+      type: 'Amulette',
     },
     {
-      type: 'Bouclier',
+      current: null,
       default: '82063_0',
-      current: null
+      type: 'Bouclier'
     },
     {
-      type: 'Anneau',
+      current: null,
       default: '9211_0',
-      current: null
+      type: 'Anneau'
     },
     {
-      type: 'Ceinture',
+      current: null,
       default: '10243_0',
-      current: null
+      type: 'Ceinture'
     },
     {
-      type: 'Bottes',
+      current: null,
       default: '11235_0',
-      current: null
+      type: 'Bottes'
     },
     {
-      type: 'Chapeau',
+      current: null,
       default: '16284_0',
-      current: null
+      type: 'Chapeau'
     },
     {
-      type: 'weapon',
+      current: null,
       default: '7067_0',
-      current: null
+      type: 'weapon'
     },
     {
-      type: 'Anneau',
+      current: null,
       default: '9211_0',
-      current: null
+      type: 'Anneau'
     },
     {
-      type: 'Cape',
+      current: null,
       default: '17291_0',
-      current: null
+      type: 'Cape'
     },
     {
-      type: 'dd',
+      current: null,
       default: '18094_0',
-      current: null
+      type: 'dd'
     }
   ],
   currentActiveItemType: null,
   currentItems: null,
   dofus: [
-    { default: '23002_0', current: null },
-    { default: '23002_0', current: null },
-    { default: '23002_0', current: null },
-    { default: '23002_0', current: null },
-    { default: '23002_0', current: null },
-    { default: '23002_0', current: null }
+    { current: null, default: '23002_0' },
+    { current: null, default: '23002_0' },
+    { current: null, default: '23002_0' },
+    { current: null, default: '23002_0' },
+    { current: null, default: '23002_0' },
+    { current: null, default: '23002_0' }
   ]
 })
 

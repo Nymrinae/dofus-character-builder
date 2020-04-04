@@ -11,7 +11,7 @@
       >
         <v-avatar size="75" class="ma-3">
           <v-img
-            :src="`https://www.dofusbook.net/static/items/${item.default}.png`"
+            :src="getIcon()"
             class="img"
           />
         </v-avatar>
@@ -42,11 +42,10 @@ export default {
     ...mapActions({
       setItemType: 'build/setItemType'
     }),
-    mounted() {
-      console.log('item:', this.item)
-    },
-    test() {
-      console.log('item:', this.item)
+    getIcon() {
+      return this.item.current
+        ? require(`@@/assets/build/${this.item.current.icon}`)
+        : `https://www.dofusbook.net/static/items/${this.item.default}.png`
     }
   }
 }
