@@ -27,9 +27,6 @@
 export default {
   props: {
     items: { type: Array, required: true }
-  },
-  mounted() {
-    console.log(this.items.slice(0, 5))
   }
 }
 </script>

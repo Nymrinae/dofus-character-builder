@@ -10,19 +10,18 @@
     </v-row>
     <v-row no-gutters>
       <v-card-text
-        class="text-justify mt-n2"
-        v-text="`Level ${item.level}`"
-      />
-    </v-row>
-    <v-row no-gutters>
-      <v-card-text
         class="text-justify"
         v-text="item.description"
       />
     </v-row>
     <v-row
-      v-text="parseStat(item.statistics)"
-    />
+      v-for="(stat, s) in parseStat(item.statistics)"
+      :key="`stat#${s}`"
+    >
+      <v-col cols="12">
+        {{ stat }}
+      </v-col>
+    </v-row>
     <v-card-actions class="justify-end">
       <v-btn @click="fetchAPI">
         <v-icon> mdi-plus </v-icon>
@@ -46,13 +45,11 @@ export default {
       try {
         return require(`@@/assets/build/${url.split('/').slice(-1)[0]}`)
       } catch (e) {
-        throw e
+        return require('@@/assets/logo.png')
       }
     },
     parseStat(stat) {
-      console.log(stat)
       const test = parseItem(stat)
-      console.log(test)
       const caca = cleanItem(test)
 
       return caca
