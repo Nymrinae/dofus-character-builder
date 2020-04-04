@@ -68,6 +68,7 @@ const state = () => ({
 })
 
 const mutations = {
+  SET_ITEM: (state, item) => { state.build[0].current = item },
   SET_ITEM_TYPE: (state, itemType) => { state.currentActiveItemType = itemType },
   SET_ITEMS: (state, items) => { state.currentItems = items }
 }
@@ -79,6 +80,9 @@ const actions = {
 
     commit('SET_ITEM_TYPE', itemType)
     commit('SET_ITEMS', data)
+  },
+  setItem: async ({ commit }, item) => {
+    commit('SET_ITEM', item)
   }
 }
 

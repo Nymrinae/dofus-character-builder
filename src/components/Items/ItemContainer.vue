@@ -7,7 +7,7 @@
         width="100"
         outlined
         :elevation="hover ? 16 : 2"
-        @click="setItemType(type)"
+        @click="setItemType(item.type)"
       >
         <v-avatar size="75" class="ma-3">
           <v-img
@@ -17,10 +17,13 @@
         </v-avatar>
         <v-container style="width: 300px">
           <v-card
-            v-if="hover && free != null"
+            v-if="hover"
             class="itemInfo"
           >
-            <v-card-title v-text="`Lorem ipsum placeholder text here`" />
+            <v-btn @click="test">
+              test
+            </v-btn>
+            <v-card-title v-text="item" />
           </v-card>
         </v-container>
       </v-card>
@@ -33,14 +36,19 @@ import { mapActions } from 'vuex'
 
 export default {
   props: {
-    free: { type: Object || null, required: true },
-    icon: { type: String, required: true },
-    type: { type: String, required: true }
+    item: { type: Object, required: true },
+    icon: { type: String, required: true }
   },
   methods: {
     ...mapActions({
       setItemType: 'build/setItemType'
-    })
+    }),
+    mounted() {
+      console.log('item:', this.item)
+    },
+    test() {
+      console.log('item:', this.item)
+    }
   }
 }
 </script>

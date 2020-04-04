@@ -7,7 +7,14 @@
         height="100px"
         contain
       />
-      <v-btn class="btn" rounded small fab color="green">
+      <v-btn
+        class="btn"
+        color="green"
+        rounded
+        small
+        fab
+        @click="buildItem"
+      >
         <v-icon color="white"> mdi-plus </v-icon>
       </v-btn>
     </v-row>
@@ -44,15 +51,29 @@
 /* eslint-disable */
 import {
   cleanItem,
-  getKeyByValue,
   parseItem
 } from '@/helpers/parser'
+import { mapActions } from 'vuex'
 
 export default {
   props: {
     item: { type: Object, required: true }
   },
+  data: () => ({
+    currentItemURL: null,
+    currentItemStats: null
+  }),
   methods: {
+    ...mapActions('build', ['setItem']),
+    buildItem() {
+      const itemToSave = {
+        name: this.item.name,
+        url: this.currentItemURL,
+        stats: this.currentItemStats
+      }
+
+      this.setItem(itemToSave)
+    },
     getKey: value => {
       return getKeyByValue(value)
     },
@@ -69,28 +90,28 @@ export default {
 
       return require(`@@/assets/icons/${ checkElem >= 0 ? elements[checkElem] : statName}.png`)
     },
-    getLocalImageLink: url => {
+    getLocalImageLink(url) {
       try {
+        this.currentItemURL = `@@/assets/build/${url.split('/').slice(-1)[0]}`
+
         return require(`@@/assets/build/${url.split('/').slice(-1)[0]}`)
       } catch (e) {
+        this.currentItemURL = '@@/assets/logo.png'
         return require('@@/assets/logo.png')
       }
     },
     parseStat(stat) {
-      const test = parseItem(stat)
-      const caca = cleanItem(test)
+      const parsedItem = parseItem(stat)
+      const cleanedItem = cleanItem(parsedItem)
 
-      return caca
-    },
-    printStat(stat) {
-      const name = getKeyByValue(stat.name)
+      this.currentItemStats = cleanedItem
 
-      return /* ${name}: */ `${stat.min}${stat.max ? `-${stat.max}` : ''}`
+      return cleanedItem
     },
-    async fetchAPI() {
-      await getData()
-    }
+    printStat: stat => `${stat.min}${stat.max ? `-${stat.max}` : ''}`
   },
+  mounted() {
+  }
 }
 </script>
 
