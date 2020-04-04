@@ -12,16 +12,14 @@
         <v-avatar size="75" class="ma-3">
           <v-img
             :src="getIcon()"
-            class="img"
+            :class="{ img: !item.current }"
           />
         </v-avatar>
-        <v-container style="width: 300px">
-          <v-card
+        <v-container style="height: 200px; width: 250px">
+          <ItemPopUpCard
             v-if="hover && item.current"
-            class="itemInfo"
-          >
-            <v-card-title v-text="item" />
-          </v-card>
+            :item="item.current"
+          />
         </v-container>
       </v-card>
     </v-hover>
@@ -30,8 +28,12 @@
 
 <script>
 import { mapActions } from 'vuex'
+import ItemPopUpCard from './ItemPopUpCard'
 
 export default {
+  components: {
+    ItemPopUpCard
+  },
   props: {
     item: { type: Object, required: true }
   },
@@ -40,9 +42,15 @@ export default {
       setItemType: 'build/setItemType'
     }),
     getIcon() {
-      return this.item.current
-        ? require(`@@/assets/items/${this.item.current.icon}`)
-        : `https://www.dofusbook.net/static/items/${this.item.default}.png`
+      if (this.item.current) {
+        try {
+          return require(`@@/assets/items/${this.item.current.icon}`)
+        } catch (e) {
+          return require('@@/assets/logo.png')
+        }
+      } else {
+        return `https://www.dofusbook.net/static/items/${this.item.default}.png`
+      }
     }
   }
 }
@@ -53,12 +61,11 @@ export default {
   filter: grayscale(1) brightness(1.3);
   opacity: 0.6;
 }
-.itemInfo {
+
+.btn {
+  position: absolute;
   z-index: 2;
-  top: -150px;
-  width: 300;
-  height: 200;
-  margin-left: 30px;
-  margin-top: -20px;
+  margin-left: 190px;
+  margin-top: -30px;
 }
 </style>
