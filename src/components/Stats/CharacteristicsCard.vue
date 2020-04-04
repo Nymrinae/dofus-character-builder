@@ -80,9 +80,6 @@ export default {
       return this.level * 5 - 5
     }
   },
-  /* created() {
-    this.statistics.forEach(e => this.$watch(() => e, this.checkChange, { deep: true }))
-  } */
   methods: {
     ...mapActions('stats', ['updateStats']),
     click(stat) {
@@ -97,9 +94,6 @@ export default {
       currentStat.lastValue = currentStat.value
       this.updateStats({ [stat]: parseInt(currentStat.value) })
     }
-    /* checkChange(newVal, oldVal) {
-      console.log(newVal, oldVal)
-    } */
   }
 }
 </script>

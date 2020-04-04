@@ -59,6 +59,18 @@ const actions = {
       }
     })
     commit('UPDATE_STATS', newStats)
+  },
+  updateStatsFromItem: ({ commit, state }, stats) => {
+    const newStats = Object.assign({}, state.stats)
+
+    Object.keys(newStats).map((e) => {
+      for (const item of stats) {
+        if (e in item) {
+          newStats[e] += item[e]
+        }
+      }
+    })
+    commit('UPDATE_STATS', newStats)
   }
 }
 

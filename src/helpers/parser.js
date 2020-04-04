@@ -41,7 +41,7 @@ const cleanItem = parsedItemStat => {
 }
 
 const parseItem = itemStats => {
-  console.log('itemstat:', itemStats)
+  // console.log('itemstat:', itemStats)
   const parsedItemStats = []
 
   itemStats.map(e => parsedItemStats.push({
@@ -49,7 +49,7 @@ const parseItem = itemStats => {
     ...Object.values(e)[0]
   }))
 
-  console.log('parsed:', parsedItemStats)
+  // console.log('parsed:', parsedItemStats)
   return parsedItemStats
 }
 

@@ -11,8 +11,8 @@
           <v-col cols="2">
             <v-img
               :src="getLocalIconLink(stat.name)"
-              width="30"
-              height="30"
+              width="25"
+              height="25"
             />
           </v-col>
           <v-col cols="10">

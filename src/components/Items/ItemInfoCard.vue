@@ -65,6 +65,7 @@ export default {
   }),
   methods: {
     ...mapActions('build', ['setItem']),
+    ...mapActions('stats', ['updateStatsFromItem']),
     buildItem() {
       const itemToSave = {
         name: this.item.name,
@@ -73,6 +74,11 @@ export default {
       }
 
       this.setItem(itemToSave)
+
+      const updateStatArray = []
+      itemToSave.stats.map(e => updateStatArray.push({ [e.name]: e.min }))
+
+      this.updateStatsFromItem(updateStatArray)
     },
     getKey: value => {
       return getKeyByValue(value)
