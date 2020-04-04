@@ -48,12 +48,11 @@
 </template>
 
 <script>
-/* eslint-disable */
+import { mapActions } from 'vuex'
 import {
   cleanItem,
   parseItem
 } from '@/helpers/parser'
-import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -80,21 +79,18 @@ export default {
 
       this.updateStatsFromItem(updateStatArray)
     },
-    getKey: value => {
-      return getKeyByValue(value)
-    },
-    getItemDescription: desc => {
+    getItemDescription: (desc) => {
       const parseDesc = desc.split('.')
 
       return parseDesc.length > 3
         ? parseDesc.slice(0, 2).join('.') + '...'
         : desc
     },
-    getLocalIconLink: statName => {
+    getLocalIconLink: (statName) => {
       const elements = ['air', 'feu', 'eau', 'neutre', 'terre']
       const checkElem = elements.map(e => statName.includes(e)).indexOf(true)
 
-      return require(`@@/assets/icons/${ checkElem >= 0 ? elements[checkElem] : statName}.png`)
+      return require(`@@/assets/icons/${checkElem >= 0 ? elements[checkElem] : statName}.png`)
     },
     getLocalImageLink(url) {
       try {
@@ -115,8 +111,6 @@ export default {
       return cleanedItem
     },
     printStat: stat => `${stat.min}${stat.max ? `-${stat.max}` : ''}`
-  },
-  mounted() {
   }
 }
 </script>

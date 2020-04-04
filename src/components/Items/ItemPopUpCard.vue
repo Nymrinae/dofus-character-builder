@@ -1,6 +1,6 @@
 <template>
   <v-card class="itemInfo" align="center">
-    <v-card-title v-text="item.name" />
+    <v-card-title v-text="item.name" height="100%" />
     <v-row no-gutters style="margin-top: -8px; margin-left: 28px;">
       <v-col
         v-for="(stat, s) in item.stats"
@@ -44,10 +44,8 @@ export default {
 <style>
 .itemInfo {
   z-index: 10;
-  top: -200px;
-  height: 300px;
-  width: 250px;
+  top: -150px;
+  width: 300px;
   margin-left: 50px;
-  margin-top: -50px;
 }
 </style>
