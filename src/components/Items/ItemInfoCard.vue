@@ -17,7 +17,7 @@
         v-text="getItemDescription(item.description)"
       />
     </v-row>
-    <v-row no-gutters>
+    <v-row no-gutters style="margin-left: 56px">
       <v-col
         v-for="(stat, s) in parseStat(item.statistics)"
         :key="`stat#${s}`"
