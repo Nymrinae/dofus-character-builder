@@ -7,6 +7,9 @@
         height="100px"
         contain
       />
+      <v-btn class="btn" rounded small fab color="green">
+        <v-icon color="white"> mdi-plus </v-icon>
+      </v-btn>
     </v-row>
     <v-row no-gutters>
       <v-card-text
@@ -34,11 +37,6 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-card-actions class="justify-end">
-      <v-btn @click="fetchAPI">
-        <v-icon> mdi-plus </v-icon>
-      </v-btn>
-    </v-card-actions>
   </v-container>
 </template>
 
@@ -97,5 +95,10 @@ export default {
 </script>
 
 <style>
-
+.btn {
+  position: absolute;
+  z-index: 2;
+  margin-left: 190px;
+  margin-top: -30px;
+}
 </style>
