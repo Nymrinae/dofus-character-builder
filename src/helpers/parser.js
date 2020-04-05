@@ -33,11 +33,10 @@ const stats = {
 
 
 const cleanItem = parsedItemStat => {
-  parsedItemStat
-    .map(elem => elem['name'] = stats[elem.name])
-    .filter(elem => elem.name != undefined)
+  parsedItemStat.map(elem => elem['name'] = stats[elem.name])
+  const filterUndefinedValues = parsedItemStat.filter(e => e.name)
 
-  return parsedItemStat
+  return filterUndefinedValues
 }
 
 const parseItem = itemStats => {

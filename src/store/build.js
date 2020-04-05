@@ -68,7 +68,14 @@ const state = () => ({
 
 const mutations = {
   SET_BUILD: (state, build) => state.build = build,
-  SET_ITEM: (state, item) => state.build.find(e => e.type === item.type).current = item,
+  SET_ITEM: (state, item) => {
+    const weapons = ['Arc', 'Batôn', 'Épée', 'Baguette', 'Dague', 'Faux', 'Hache', 'Marteau', 'Pelle']
+    const itemType = weapons.includes(item.type) ? 'weapon' : item.type
+
+    console.log(itemType)
+
+    state.build.find(e => e.type === itemType).current = item
+  },
   SET_ITEM_TYPE: (state, itemType) => state.currentActiveItemType = itemType,
   SET_ITEMS: (state, items) => state.currentItems = items
 }
@@ -77,15 +84,25 @@ const actions = {
   setBuild: async ({ commit }, build) => {
     commit('SET_BUILD', build.build)
   },
+  setItem: async ({ commit }, item) => {
+    commit('SET_ITEM', item)
+  },
   setItemType: async ({ commit }, itemType) => {
-    const res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
-    const data = res.data.filter(e => e.type === itemType)
+    let res = null
+    let data = null
+
+    switch (itemType) {
+      case 'weapon':
+        res = await axios.get('https://fr.dofus.dofapi.fr/weapons')
+        data = res.data
+        break
+      default: 
+        res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
+        data = res.data.filter(e => e.type === itemType)
+    }
 
     commit('SET_ITEM_TYPE', itemType)
     commit('SET_ITEMS', data)
-  },
-  setItem: async ({ commit, state }, item) => {
-    commit('SET_ITEM', item)
   }
 }
 
