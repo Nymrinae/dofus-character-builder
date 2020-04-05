@@ -15,7 +15,10 @@
             :class="{ img: !item.current }"
           />
         </v-avatar>
-        <v-container style="height: 200px; width: 250px">
+        <v-container
+          class="pa-0 ma-0"
+          style="height: 200px; width: 300px"
+        >
           <ItemPopUpCard
             v-if="hover && item.current"
             :item="item.current"

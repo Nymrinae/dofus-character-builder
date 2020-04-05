@@ -68,6 +68,7 @@ export default {
     buildItem() {
       const itemToSave = {
         name: this.item.name,
+        type: this.item.type,
         icon: this.currentItemURL.split('/').slice(-1),
         stats: this.currentItemStats
       }

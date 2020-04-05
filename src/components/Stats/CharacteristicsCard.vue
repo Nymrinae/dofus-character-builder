@@ -83,13 +83,13 @@ export default {
   methods: {
     ...mapActions('stats', ['updateStats']),
     click(stat) {
-      const currentStat = this.statistics.filter(e => e.name === stat).shift()
+      const currentStat = this.statistics.find(e => e.name === stat)
 
       this.updateStats({ [stat]: currentStat.isChecked ? -100 : 100 })
       currentStat.isChecked = !currentStat.isChecked
     },
     test(stat) {
-      const currentStat = this.statistics.filter(e => e.name === stat).shift()
+      const currentStat = this.statistics.find(e => e.name === stat)
 
       currentStat.lastValue = currentStat.value
       this.updateStats({ [stat]: parseInt(currentStat.value) })

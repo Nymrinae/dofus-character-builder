@@ -1,8 +1,6 @@
-const urls = ['http://static.ankama.com/dofus/www/game/items/200/1001.png']
-const api = 'https://fr.dofus.dofapi.fr/equipments'
+const urls = []
 const fs = require('fs')
 const http = require('http')
-const https = require('https')
 
 for (url of urls) {
   let i = 0
@@ -10,15 +8,6 @@ for (url of urls) {
   const file = fs.createWriteStream(fileName)
   
   http.get(url, res => res.pipe(file))
-  https.get(api, function(res) {
-
-    console.log("Got response: " + res.statusCode);
-  
-    res.on("data", e => {
-      console.log("BODY: " + e.map(e => e)['id']);
-      i++
-    });
-  })
 }
 
 /* const fs = require('fs')

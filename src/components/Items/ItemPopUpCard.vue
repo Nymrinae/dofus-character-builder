@@ -1,7 +1,7 @@
 <template>
   <v-card class="itemInfo" align="center">
-    <v-card-title v-text="item.name" height="100%" />
-    <v-row no-gutters style="margin-top: -8px; margin-left: 28px;">
+    <v-card-title height="100%" v-text="item.name" />
+    <v-row no-gutters class="ml-8 mr-n8 mt-n4 py-4">
       <v-col
         v-for="(stat, s) in item.stats"
         :key="`stat#${s}`"
@@ -16,7 +16,7 @@
             />
           </v-col>
           <v-col cols="10">
-            <v-subheader class="font-weight-black" v-text="printStat(stat)" />
+            <v-subheader class="body-2 font-weight-black" v-text="printStat(stat)" />
           </v-col>
         </v-row>
       </v-col>
@@ -46,6 +46,10 @@ export default {
   z-index: 10;
   top: -150px;
   width: 300px;
-  margin-left: 50px;
+  margin-left: 75px;
+}
+.rowContainer {
+  margin-top: -8px;
+  padding-bottom: 12px;
 }
 </style>
