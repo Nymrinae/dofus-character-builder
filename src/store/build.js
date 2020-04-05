@@ -67,15 +67,15 @@ const state = () => ({
 })
 
 const mutations = {
-  SET_BUILD: (state, build) => state.build = build.build,
-  SET_ITEM: (state, item) => { state.build.find(e => e.type === item.type).current = item },
-  SET_ITEM_TYPE: (state, itemType) => { state.currentActiveItemType = itemType },
-  SET_ITEMS: (state, items) => { state.currentItems = items }
+  SET_BUILD: (state, build) => state.build = build,
+  SET_ITEM: (state, item) => state.build.find(e => e.type === item.type).current = item,
+  SET_ITEM_TYPE: (state, itemType) => state.currentActiveItemType = itemType,
+  SET_ITEMS: (state, items) => state.currentItems = items
 }
 
 const actions = {
   setBuild: async ({ commit }, build) => {
-    commit('SET_BUILD', build)
+    commit('SET_BUILD', build.build)
   },
   setItemType: async ({ commit }, itemType) => {
     const res = await axios.get('https://fr.dofus.dofapi.fr/equipments')

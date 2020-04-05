@@ -95,9 +95,10 @@ export default {
     },
     getLocalImageLink(url) {
       try {
-        this.currentItemURL = `@@/assets/items/${url.split('/').slice(-1)[0]}`
+        const itemURL = `https://github.com/Nymrinae/dofus-assets/blob/master/${url.split('/').slice(-1)[0]}?raw=true`
+        this.currentItemURL = itemURL
 
-        return require(`@@/assets/items/${url.split('/').slice(-1)[0]}`)
+        return itemURL
       } catch (e) {
         this.currentItemURL = '@@/assets/logo.png'
         return require('@@/assets/logo.png')

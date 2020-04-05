@@ -47,7 +47,7 @@ export default {
     getIcon() {
       if (this.item.current) {
         try {
-          return require(`@@/assets/items/${this.item.current.icon}`)
+          return `https://github.com/Nymrinae/dofus-assets/blob/master/${this.item.current.icon}?raw=true`
         } catch (e) {
           return require('@@/assets/logo.png')
         }
