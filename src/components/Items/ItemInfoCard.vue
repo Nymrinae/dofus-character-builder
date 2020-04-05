@@ -105,6 +105,11 @@ export default {
       }
     },
     parseStat(stat) {
+      if (!stat) {
+        this.currentItemStats = []
+        return []
+      }
+
       const parsedItem = parseItem(stat)
       const cleanedItem = cleanItem(parsedItem)
 

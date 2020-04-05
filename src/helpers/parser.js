@@ -40,7 +40,7 @@ const cleanItem = parsedItemStat => {
 }
 
 const parseItem = itemStats => {
-  console.log(itemStats)
+  console.log('stats:', itemStats)
   const parsedItemStats = []
 
   itemStats.map(e => parsedItemStats.push({
