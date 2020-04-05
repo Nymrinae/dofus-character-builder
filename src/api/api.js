@@ -1,23 +1,43 @@
 /* eslint-disable */
-import fs from 'browserify-fs'
 import axios from 'axios'
 
 const API_BASE_URL = 'https://fr.dofus.dofapi.fr'
 
+const getEquipmentByType = async (type) => {
+  return makeRequest('/equipments', type)
+}
+
+const getDofus = async () => {
+  return makeRequest('/equipments', null, ['Dofus', 'Trophée'])
+}
+
+const getMounts = async () => {
+  return makeRequest('/mounts')
+}
+
+const getPets = async () => {
+  return makeRequest('/pets')
+}
+
 const getWeapons = async () => {
-  const res = await axios.get(`${API_BASE_URL}/weapons`)
+  return makeRequest('/weapons')
 }
 
-const getEquipment = async (type) => {
-  const res = await axios.get(`${API_BASE_URL}/equipments`)
-}
+const makeRequest = async (endpoint, type = null, categories = null) => {
+  const res = await axios.get(`${API_BASE_URL}${endpoint}`)
 
-const getData = async () => {
-  const res = await axios.get(`${API_BASE_URL}/equipments`)
+  if (categories)
+    return res.data.filter(e => categories.includes(e.type))
+
+  return type
+    ? res.data.filter(e => e.type === type)
+    : res.data
 }
 
 export {
-  getData,
-  getEquipment,
+  getDofus,
+  getEquipmentByType,
+  getMounts,
+  getPets,
   getWeapons
 }

@@ -1,5 +1,11 @@
 /* eslint-disable */
 import axios from 'axios'
+import {
+  getDofus,
+  getEquipmentByType,
+  getPets,
+  getWeapons
+} from '@/api/api'
 
 const state = () => ({
   build: [
@@ -118,27 +124,21 @@ const actions = {
     commit('SET_ITEM', item)
   },
   setItemType: async ({ commit }, itemType) => {
-    let res = null
     let data = null
 
     switch (itemType) {
       case 'weapon':
-        res = await axios.get('https://fr.dofus.dofapi.fr/weapons')
-        data = res.data
+        data = await getWeapons()
         break
       case 'dd':
-        const pets = await axios.get('https://fr.dofus.dofapi.fr/pets')
-        const mounts = await axios.get('https://fr.dofus.dofapi.fr/mounts')
-
-        data = pets.data //, ...mounts.data]
+        data = await getPets()
         break
       case 'dofus':
-        res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
-        data = res.data.filter(e => ['Dofus', 'Trophée'].includes(e.type))
+        data = await getDofus()
         break
       default:
-        res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
-        data = res.data.filter(e => e.type === itemType)
+        data = await getEquipmentByType(itemType)
+        break
     }
 
     commit('SET_ITEM_TYPE', itemType)
