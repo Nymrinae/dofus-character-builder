@@ -23,7 +23,7 @@
             style="width: 125px"
             type="number"
             @input="levelLimits"
-            @change="updateLevel(currentLevel)"
+            @change="updateLevelAndHP()"
           />
         </v-col>
         <UserActions />
@@ -55,9 +55,14 @@ export default {
   },
   methods: {
     ...mapActions('character', ['updateLevel']),
+    ...mapActions('stats', ['updateStats']),
     levelLimits() {
       if (this.level < 0) { this.level = 1 }
       if (this.level > 200) { this.level = 200 }
+    },
+    updateLevelAndHP() {
+      this.updateStats({ hp: this.currentLevel * 5 - 5 })
+      this.updateLevel(this.currentLevel)
     }
   }
 }

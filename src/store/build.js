@@ -125,7 +125,7 @@ const actions = {
         const pets = await axios.get('https://fr.dofus.dofapi.fr/pets')
         const mounts = await axios.get('https://fr.dofus.dofapi.fr/mounts')
 
-        data = [...pets.data, ...mounts.data]
+        data = pets.data //, ...mounts.data]
         break
       case 'dofus':
         res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
