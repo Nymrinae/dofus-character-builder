@@ -42,11 +42,14 @@ export default {
   },
   methods: {
     ...mapActions('build', ['removeItem', 'setItemType']),
-    ...mapActions('stats', ['removeStatsFromItem']),
+    ...mapActions('stats', ['updateStatsFromItem']),
     checkItem() {
       console.log('item current from container:', this.item.current)
       if (this.item.current) {
-        this.removeStatsFromItem(this.item.current.stats)
+        const updateStatArray = []
+
+        this.item.current.stats.map(e => updateStatArray.push({ [e.name]: e.min }))
+        this.updateStatsFromItem([updateStatArray, 'rm'])
         this.removeItem(this.item)
       } else {
         this.setItemType(this.item.type)

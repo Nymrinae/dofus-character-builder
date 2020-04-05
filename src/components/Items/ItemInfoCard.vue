@@ -78,7 +78,7 @@ export default {
       const updateStatArray = []
       itemToSave.stats.map(e => updateStatArray.push({ [e.name]: e.min }))
 
-      this.updateStatsFromItem(updateStatArray)
+      this.updateStatsFromItem([updateStatArray, 'add'])
     },
     getItemDescription: (desc) => {
       const parseDesc = desc.split('.')
