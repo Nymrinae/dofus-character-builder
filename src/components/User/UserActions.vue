@@ -1,10 +1,11 @@
 <template>
   <v-container class="pa-0 ma-0">
-    <v-row no-gutters class="ml-12 mt-6 mb-n8">
+    <v-row no-gutters class="mt-6 mb-n8">
       <v-col
         v-for="item in icons"
         :key="item.name"
-        cols="3"
+        cols="2"
+        class="pl-1 mx-1"
       >
         <v-btn
           icon
@@ -29,7 +30,8 @@ export default {
     icons: [
       { color: 'blue', name: 'male', icon: 'mdi-gender-male' },
       { color: 'pink', name: 'female', icon: 'mdi-gender-female' },
-      { color: 'gray', name: 'load', icon: 'mdi-sync' },
+      { color: 'gray', name: 'reset', icon: 'mdi-autorenew' },
+      { color: 'gray', name: 'load', icon: 'mdi-progress-download' },
       { color: 'gray', name: 'save', icon: 'mdi-content-save-all' }
     ]
   }),
@@ -38,13 +40,19 @@ export default {
     ...mapState('build', ['build'])
   },
   methods: {
-    ...mapActions('build', ['setBuild']),
+    ...mapActions('build', [
+      'resetBuild',
+      'setBuild'
+    ]),
     ...mapActions('character', ['updateSex']),
     getAction(itemName) {
       switch (itemName) {
         case 'male':
         case 'female':
           this.updateSex(itemName)
+          break
+        case 'reset':
+          this.resetBuild()
           break
         case 'load':
           this.load()

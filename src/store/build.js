@@ -70,6 +70,10 @@ const mutations = {
   REMOVE_ITEM: (state, item) => {
     state.build.find(e => e.type === item.type).current = null
   },
+  RESET_BUILD: (state) => {
+    state.build.forEach(e => e.current = null)
+    state.dofus.forEach(e => e.current = null)
+  },
   SET_BUILD: (state, build) => state.build = build,
   SET_ITEM: (state, item) => {
     console.log(item.type)
@@ -102,6 +106,9 @@ const mutations = {
 }
 
 const actions = {
+  resetBuild: async ({ commit }) => {
+    commit('RESET_BUILD')
+  },
   removeItem: async ({ commit }, item) => {
     commit('REMOVE_ITEM', item)
   },
