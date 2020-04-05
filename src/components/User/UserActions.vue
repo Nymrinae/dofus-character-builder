@@ -4,9 +4,10 @@
       <v-col
         v-for="item in icons"
         :key="item.name"
-        cols="4"
+        cols="3"
       >
         <v-btn
+          v-on="on"
           icon
           @click="item.name != 'save' ? updateSex(item.name) : save()"
         >
@@ -21,20 +22,28 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
+import { db } from '@/api/firebase'
 
 export default {
   data: () => ({
     icons: [
       { color: 'blue', name: 'male', icon: 'mdi-gender-male' },
       { color: 'pink', name: 'female', icon: 'mdi-gender-female' },
+      { color: 'gray', name: 'load', icon: 'mdi-sync' },
       { color: 'gray', name: 'save', icon: 'mdi-content-save-all' }
     ]
   }),
+  computed: {
+    ...mapState('auth', ['user']),
+    ...mapState('build', ['build'])
+  },
   methods: {
     ...mapActions('character', ['updateSex']),
     save() {
-      console.log('Save State into Firestore')
+      db.collection('users').doc(this.user.uid).set({
+        build: this.build
+      })
     }
   }
 }
