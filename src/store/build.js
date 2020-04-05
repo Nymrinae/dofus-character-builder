@@ -57,12 +57,12 @@ const state = () => ({
   currentActiveItemType: null,
   currentItems: null,
   dofus: [
-    { current: null, default: '23002_0' },
-    { current: null, default: '23002_0' },
-    { current: null, default: '23002_0' },
-    { current: null, default: '23002_0' },
-    { current: null, default: '23002_0' },
-    { current: null, default: '23002_0' }
+    { current: null, default: '23002_0', type: 'dofus' },
+    { current: null, default: '23002_0', type: 'dofus' },
+    { current: null, default: '23002_0', type: 'dofus' },
+    { current: null, default: '23002_0', type: 'dofus' },
+    { current: null, default: '23002_0', type: 'dofus' },
+    { current: null, default: '23002_0', type: 'dofus' }
   ]
 })
 
@@ -105,7 +105,13 @@ const actions = {
       case 'dd':
         const pets = await axios.get('https://fr.dofus.dofapi.fr/pets')
         const mounts = await axios.get('https://fr.dofus.dofapi.fr/mounts')
+
         data = [...pets.data, ...mounts.data]
+        break
+      case 'dofus':
+        res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
+        data = res.data.filter(e => ['Dofus', 'Trophée'].includes(e.type))
+        console.log(data)
         break
       default:
         res = await axios.get('https://fr.dofus.dofapi.fr/equipments')

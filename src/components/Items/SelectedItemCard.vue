@@ -3,7 +3,7 @@
     <v-container>
       <v-card-text
         class="headline font-weight-black"
-        v-text="type"
+        v-text="getTypeName(type)"
       />
       <v-card-text>
         <v-autocomplete
@@ -50,6 +50,18 @@ export default {
     currentActiveItemType(newValue, oldValue) {
       if (newValue) {
         this.item = null
+      }
+    }
+  },
+  methods: {
+    getTypeName: (type) => {
+      switch (type) {
+        case 'dd':
+          return 'Familiers & Montures'
+        case 'dofus':
+          return 'Dofus & Trophées'
+        default:
+          return type
       }
     }
   }
