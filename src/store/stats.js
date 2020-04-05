@@ -47,6 +47,7 @@ const stats = () => {
     }
   }
 }
+
 const state = stats()
 
 const mutations = {

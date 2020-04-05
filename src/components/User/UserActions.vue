@@ -76,7 +76,8 @@ export default {
     },
     save() {
       db.collection('users').doc(this.user.uid).set({
-        build: [...this.build, ...this.dofus]
+        build: this.build,
+        dofus: this.dofus
       })
     }
   }

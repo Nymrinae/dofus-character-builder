@@ -80,7 +80,10 @@ const mutations = {
     state.build.forEach(e => e.current = null)
     state.dofus.forEach(e => e.current = null)
   },
-  SET_BUILD: (state, build) => state.build = build,
+  SET_BUILD: (state, build) => {
+    state.build = build.build
+    state.dofus = build.dofus
+  },
   SET_ITEM: (state, item) => {
     const weapons = ['Arc', 'Batôn', 'Épée', 'Baguette', 'Dague', 'Faux', 'Hache', 'Marteau', 'Pelle']
     let itemType = null
@@ -118,7 +121,7 @@ const actions = {
     commit('REMOVE_ITEM', item)
   },
   setBuild: async ({ commit }, build) => {
-    commit('SET_BUILD', build.build)
+    commit('SET_BUILD', build)
   },
   setItem: async ({ commit }, item) => {
     commit('SET_ITEM', item)
