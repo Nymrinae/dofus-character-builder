@@ -63,7 +63,6 @@ const actions = {
     commit('UPDATE_STATS', newStats)
   },
   updateStatsFromItem: ({ commit, state }, [stats, type]) => {
-    console.log(`type: ${type} / stats:`, stats)
     const newStats = Object.assign({}, state.stats)
 
     Object.keys(newStats).map((e) => {

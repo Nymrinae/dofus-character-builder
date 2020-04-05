@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import UserActions from './UserActions'
 
 export default {
@@ -54,15 +54,15 @@ export default {
     this.currentLevel = this.level
   },
   methods: {
-    ...mapActions('character', ['updateLevel']),
     ...mapActions('stats', ['updateStats']),
+    ...mapMutations('character', ['UPDATE_LEVEL']),
     levelLimits() {
       if (this.level < 0) { this.level = 1 }
       if (this.level > 200) { this.level = 200 }
     },
     updateLevelAndHP() {
       this.updateStats({ hp: this.currentLevel * 5 - 5 })
-      this.updateLevel(this.currentLevel)
+      this.UPDATE_LEVEL(this.currentLevel)
     }
   }
 }

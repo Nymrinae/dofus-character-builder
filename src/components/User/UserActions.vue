@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import { db } from '@/api/firebase'
 
 export default {
@@ -44,12 +44,12 @@ export default {
       'resetBuild',
       'setBuild'
     ]),
-    ...mapActions('character', ['updateSex']),
+    ...mapMutations('character', ['UPDATE_SEX']),
     getAction(itemName) {
       switch (itemName) {
         case 'male':
         case 'female':
-          this.updateSex(itemName)
+          this.UPDATE_SEX(itemName)
           break
         case 'reset':
           this.resetBuild()
@@ -64,11 +64,9 @@ export default {
     },
     async load() {
       const docRef = db.collection('users').doc(this.user.uid)
-
       const doc = await docRef.get()
 
       if (doc) {
-        console.log(doc.data())
         this.setBuild(doc.data())
       }
     },

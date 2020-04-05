@@ -19,7 +19,7 @@
         >
           <v-img
             :src="require(`@@/assets/classes/avatars/${c.toLowerCase()}.png`)"
-            @click="updateClass(c)"
+            @click="UPDATE_ACTIVE_CLASS(c)"
           />
         </v-card>
       </v-slide-item>
@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   computed: mapState('character', ['classes']),
-  methods: mapActions('character', ['updateClass'])
+  methods: mapMutations('character', ['UPDATE_ACTIVE_CLASS'])
 }
 </script>
 

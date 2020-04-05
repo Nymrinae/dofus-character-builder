@@ -44,7 +44,6 @@ export default {
     ...mapActions('build', ['removeItem', 'setItemType']),
     ...mapActions('stats', ['updateStatsFromItem']),
     checkItem() {
-      console.log('item current from container:', this.item.current)
       if (this.item.current) {
         const updateStatArray = []
 

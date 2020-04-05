@@ -76,7 +76,6 @@ const mutations = {
   },
   SET_BUILD: (state, build) => state.build = build,
   SET_ITEM: (state, item) => {
-    console.log(item.type)
     const weapons = ['Arc', 'Batôn', 'Épée', 'Baguette', 'Dague', 'Faux', 'Hache', 'Marteau', 'Pelle']
     let itemType = null
 
@@ -121,7 +120,6 @@ const actions = {
   setItemType: async ({ commit }, itemType) => {
     let res = null
     let data = null
-    console.log(itemType)
 
     switch (itemType) {
       case 'weapon':
@@ -137,7 +135,6 @@ const actions = {
       case 'dofus':
         res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
         data = res.data.filter(e => ['Dofus', 'Trophée'].includes(e.type))
-        console.log(data)
         break
       default:
         res = await axios.get('https://fr.dofus.dofapi.fr/equipments')
