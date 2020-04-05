@@ -69,17 +69,24 @@ const state = () => ({
 const mutations = {
   SET_BUILD: (state, build) => state.build = build,
   SET_ITEM: (state, item) => {
+    console.log(item.type)
     const weapons = ['Arc', 'Batôn', 'Épée', 'Baguette', 'Dague', 'Faux', 'Hache', 'Marteau', 'Pelle']
     let itemType = null
 
-    if (weapons.includes(item.type))
-      itemType = 'weapon'
-    else if (item.type == 'Familier')
-      itemType = 'dd'
-    else
-      itemType = item.type
+    if (['Dofus', 'Trophée'].includes(item.type)) {
+      const pos = state.dofus.map(e => !e.current).indexOf(true)
 
-    state.build.find(e => e.type === itemType).current = item
+      state.dofus[pos].current = item
+    } else {
+      if (weapons.includes(item.type))
+        itemType = 'weapon'
+      else if (item.type == 'Familier')
+        itemType = 'dd'
+      else
+        itemType = item.type
+
+      state.build.find(e => e.type === itemType).current = item
+    }
   },
   SET_ITEM_TYPE: (state, itemType) => state.currentActiveItemType = itemType,
   SET_ITEMS: (state, items) => state.currentItems = items
