@@ -84,8 +84,14 @@ const mutations = {
         itemType = 'dd'
       else
         itemType = item.type
+      
+      if (itemType == 'Anneau') {
+        const pos = state.build.filter(e => e.type === 'Anneau').map(e => !e.current).indexOf(true)
 
-      state.build.find(e => e.type === itemType).current = item
+        state.build.filter(e => e.type === 'Anneau')[pos].current = item
+      } else {
+        state.build.find(e => e.type === itemType).current = item
+      }
     }
   },
   SET_ITEM_TYPE: (state, itemType) => state.currentActiveItemType = itemType,
