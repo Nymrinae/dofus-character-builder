@@ -68,6 +68,7 @@ export default {
 
       if (doc) {
         this.setBuild(doc.data())
+        // this.setStats(doc.data())
       }
     },
     save() {

@@ -13,8 +13,9 @@
                 width="208"
               />
               <div class="text-center">
-                <h1 class="display-2 font-weight-bold"> Dofus Character Builder </h1>
-                <h3 class="title font-weight-black"> A reproduction of DofusBook </h3>
+                <h1 class="display-2 font-weight-bold">
+                  Dofus Character Builder
+                </h1>
               </div>
             </v-col>
             <v-col cols="8" md="4">
