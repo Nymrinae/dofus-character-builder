@@ -7,7 +7,7 @@
         width="100"
         outlined
         :elevation="hover ? 16 : 2"
-        @click="setItemType(item.type)"
+        @click="checkItem()"
       >
         <v-avatar size="75" class="ma-3">
           <v-img
@@ -41,9 +41,17 @@ export default {
     item: { type: Object, required: true }
   },
   methods: {
-    ...mapActions({
-      setItemType: 'build/setItemType'
-    }),
+    ...mapActions('build', ['removeItem', 'setItemType']),
+    ...mapActions('stats', ['removeStatsFromItem']),
+    checkItem() {
+      console.log('item current from container:', this.item.current)
+      if (this.item.current) {
+        this.removeStatsFromItem(this.item.current.stats)
+        this.removeItem(this.item)
+      } else {
+        this.setItemType(this.item.type)
+      }
+    },
     getIcon() {
       if (this.item.current) {
         try {

@@ -67,6 +67,9 @@ const state = () => ({
 })
 
 const mutations = {
+  REMOVE_ITEM: (state, item) => {
+    state.build.find(e => e.type === item.type).current = null
+  },
   SET_BUILD: (state, build) => state.build = build,
   SET_ITEM: (state, item) => {
     console.log(item.type)
@@ -99,6 +102,9 @@ const mutations = {
 }
 
 const actions = {
+  removeItem: async ({ commit }, item) => {
+    commit('REMOVE_ITEM', item)
+  },
   setBuild: async ({ commit }, build) => {
     commit('SET_BUILD', build.build)
   },

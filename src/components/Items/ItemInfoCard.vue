@@ -8,7 +8,7 @@
         contain
       />
       <v-btn
-        class="btn"
+        class="btnAdd"
         color="green"
         rounded
         small
@@ -123,7 +123,7 @@ export default {
 </script>
 
 <style>
-.btn {
+.btnAdd {
   position: absolute;
   z-index: 2;
   margin-left: 190px;

@@ -50,6 +50,19 @@ const mutations = {
 }
 
 const actions = {
+  removeStatsFromItem: ({ commit, state }, stats) => {
+    console.log('on removed action:', stats)
+    const newStats = Object.assign({}, state.stats)
+
+    Object.keys(newStats).map((e) => {
+      for (const item of stats) {
+        if (e in item) {
+          newStats[e] -= item[e]
+        }
+      }
+    })
+    commit('UPDATE_STATS', newStats)
+  },
   updateStats: ({ commit, state }, incStats) => {
     const newStats = Object.assign({}, state.stats)
 
