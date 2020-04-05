@@ -67,7 +67,7 @@ const state = () => ({
 })
 
 const mutations = {
-  SET_BUILD: (state, build) => { state.build = build },
+  SET_BUILD: (state, build) => state.build = build.build,
   SET_ITEM: (state, item) => { state.build.find(e => e.type === item.type).current = item },
   SET_ITEM_TYPE: (state, itemType) => { state.currentActiveItemType = itemType },
   SET_ITEMS: (state, items) => { state.currentItems = items }

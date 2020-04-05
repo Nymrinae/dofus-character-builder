@@ -54,10 +54,7 @@ export default {
     CharacterView,
     ItemContainer
   },
-  computed: mapState('build', ['build', 'dofus']),
-  mounted() {
-    console.log(this.build)
-  }
+  computed: mapState('build', ['build', 'dofus'])
 }
 </script>
 
