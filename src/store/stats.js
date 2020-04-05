@@ -1,7 +1,8 @@
 /* eslint-disable */
-const state = () => ({
-  stats: {
-    hp: 55,
+const stats = () => {
+  return {
+    stats: {
+      hp: 55,
     pa: 6,
     pm: 3,
     ini: 0,
@@ -43,15 +44,38 @@ const state = () => ({
     fixresfeu: 0,
     fixreseau: 0,
     fixresair: 0
+    }
   }
-})
+}
+const state = stats()
 
 const mutations = {
-  TEST: (state, stats) => state.stats = stats,
-  UPDATE_STATS: (state, stats) => { state.stats = stats }
+  RESET_STATS: (state) => Object.assign(state, stats()),
+  UPDATE_STATS: (state, stats) => state.stats = stats
 }
 
 const actions = {
+  setStats: ({ commit, state }, stats) => {
+    const build = stats.build.filter(x => x.current != null)
+    const newStats = Object.assign({}, state.stats)
+    const updateStatArray = []
+    
+    build.forEach(e => {
+      e.current.stats.map(e => { 
+        updateStatArray.push({ [e.name]: e.min })
+      })
+    })
+
+    Object.keys(newStats).map(e => {
+      for (const item of updateStatArray) {
+        if (e in item) {
+          newStats[e] += item[e]
+        }
+      }
+    })
+
+    commit('UPDATE_STATS', newStats)
+  },
   updateStats: ({ commit, state }, incStats) => {
     const newStats = Object.assign({}, state.stats)
 

@@ -37,14 +37,16 @@ export default {
   }),
   computed: {
     ...mapState('auth', ['user']),
-    ...mapState('build', ['build'])
+    ...mapState('build', ['build', 'dofus'])
   },
   methods: {
     ...mapActions('build', [
       'resetBuild',
       'setBuild'
     ]),
+    ...mapActions('stats', ['setStats']),
     ...mapMutations('character', ['UPDATE_SEX']),
+    ...mapMutations('stats', ['RESET_STATS']),
     getAction(itemName) {
       switch (itemName) {
         case 'male':
@@ -53,6 +55,7 @@ export default {
           break
         case 'reset':
           this.resetBuild()
+          this.RESET_STATS()
           break
         case 'load':
           this.load()
@@ -68,12 +71,12 @@ export default {
 
       if (doc) {
         this.setBuild(doc.data())
-        // this.setStats(doc.data())
+        this.setStats(doc.data())
       }
     },
     save() {
       db.collection('users').doc(this.user.uid).set({
-        build: this.build
+        build: [...this.build, ...this.dofus]
       })
     }
   }
