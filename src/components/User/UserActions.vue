@@ -7,9 +7,8 @@
         cols="3"
       >
         <v-btn
-          v-on="on"
           icon
-          @click="item.name != 'save' ? updateSex(item.name) : save()"
+          @click="getAction(item.name)"
         >
           <v-icon
             :color="item.color"
@@ -39,7 +38,32 @@ export default {
     ...mapState('build', ['build'])
   },
   methods: {
+    ...mapActions('build', ['setBuild']),
     ...mapActions('character', ['updateSex']),
+    getAction(itemName) {
+      switch (itemName) {
+        case 'male':
+        case 'female':
+          this.updateSex(itemName)
+          break
+        case 'load':
+          this.load()
+          break
+        case 'save':
+          this.save()
+          break
+      }
+    },
+    async load() {
+      const docRef = db.collection('users').doc(this.user.uid)
+
+      const doc = await docRef.get()
+
+      if (doc) {
+        console.log(doc.data())
+        this.setBuild(doc.data())
+      }
+    },
     save() {
       db.collection('users').doc(this.user.uid).set({
         build: this.build

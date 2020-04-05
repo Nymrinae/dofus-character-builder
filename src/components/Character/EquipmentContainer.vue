@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="3" align="center">
         <ItemContainer
-          v-for="(item, i) in items.slice(0, 5)"
+          v-for="(item, i) in build.slice(0, 5)"
           :key="`item#${i}`"
           :item="item"
           :icon="item.default"
@@ -26,7 +26,7 @@
       </v-col>
       <v-col cols="3" align="center">
         <ItemContainer
-          v-for="(item, j) in items.slice(5, 10)"
+          v-for="(item, j) in build.slice(5, 10)"
           :key="`item#${j}`"
           :item="item"
         />
@@ -54,10 +54,10 @@ export default {
     CharacterView,
     ItemContainer
   },
-  computed: mapState('build', {
-    items: state => state.build,
-    dofus: state => state.dofus
-  })
+  computed: mapState('build', ['build', 'dofus']),
+  mounted() {
+    console.log(this.build)
+  }
 }
 </script>
 
