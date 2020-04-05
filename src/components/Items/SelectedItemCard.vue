@@ -57,9 +57,11 @@ export default {
     getTypeName: (type) => {
       switch (type) {
         case 'dd':
-          return 'Familiers & Montures'
+          return 'Familier & Monture'
         case 'dofus':
-          return 'Dofus & Trophées'
+          return 'Dofus & Trophée'
+        case 'weapon':
+          return 'Arme'
         default:
           return type
       }
