@@ -5,7 +5,7 @@
 </p>
 
 <p align="justify">
-Dofus Character Builder is a personal project presenting an interface where you can try a build for your character (items, stats...). This app has been built for <b>learning</b> purposes. The interface is in French and I'm not going to translate this.
+Dofus Character Builder is a personal project presenting an interface where you can try a build for your character (items, stats...). This app has been built for <b>learning</b> purposes.
 <br>It <b>does not aim</b> (and can't at all tbh) <b>to replace </b> any current existing builders (Dofusbook...) and <b> does not aim to be used </b> by someone since there is still some bugs and a lot of missing stuff.<br><br>
 Because of some assets not showing errors (despite using ANKAMA urls), I added a repo where I uploaded all items, mounts, pets... assets. This repo will be deleted when this issue will be fixed.<br>You can find it here: <a href="https://github.com/Nymrinae/dofus-assets"> dofus-assets </a>
 </p>
